@@ -42,12 +42,12 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyBffo9yg-z3ZlGgVDQF_DcJowAQAidC0wQ',
-    appId: '1:878162306785:web:fc2c50bcb1c9288805f9a0',
+    appId: '1:878162306785:web:7a57928004e5b92105f9a0',
     messagingSenderId: '878162306785',
     projectId: 'musicapp-516c4',
     authDomain: 'musicapp-516c4.firebaseapp.com',
     storageBucket: 'musicapp-516c4.appspot.com',
-    measurementId: 'G-WBY6CH2Z1X',
+    measurementId: 'G-CDM0X03RZQ',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
@@ -78,11 +78,12 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions windows = FirebaseOptions(
     apiKey: 'AIzaSyBffo9yg-z3ZlGgVDQF_DcJowAQAidC0wQ',
-    appId: '1:878162306785:web:dcf47a60e936109c05f9a0',
+    appId: '1:878162306785:web:39b1bcd3811eba4e05f9a0',
     messagingSenderId: '878162306785',
     projectId: 'musicapp-516c4',
     authDomain: 'musicapp-516c4.firebaseapp.com',
     storageBucket: 'musicapp-516c4.appspot.com',
-    measurementId: 'G-RQF0MZHESD',
+    measurementId: 'G-D0JR5GWVKC',
   );
+
 }
