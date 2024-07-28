@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:musicapp/auth/auth_service.dart';
+import 'package:musicapp/screens/HomePage.dart';
 import 'package:musicapp/screens/SignUp.dart';
 
 class Login extends StatefulWidget {
@@ -10,15 +12,30 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
 
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+  final _auth = AuthService();
+  final loginEmailController = TextEditingController();
+  final loginPasswordController = TextEditingController();
+
+  login () async {
+    final user = await _auth.signWithEmailAndPassword(loginEmailController.text, loginPasswordController.text);
+
+    if(user != null) {
+      Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+      dispose();
+      print("User Logged in Successfully");
+    }
+    else {
+      print("Error with User Login");
+    }
+  }
 
   @override
   void dispose() {
     // function to dispose the controllers when user moves to another page
+    loginEmailController.dispose();
+    loginPasswordController.dispose();
+    print("Login Controllers Disposed Successfully");
     super.dispose();
-    emailController.dispose();
-    passwordController.dispose();
   }
 
   @override
@@ -27,9 +44,10 @@ class _LoginState extends State<Login> {
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(25.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: ListView(
             children: [
+              SizedBox(height: 150,),
+
               Text(
                 "Login",
                 style: TextStyle(
@@ -41,7 +59,7 @@ class _LoginState extends State<Login> {
               SizedBox(height: 50,),
 
               TextField(
-                controller: emailController,
+                controller: loginEmailController,
                 decoration: const InputDecoration(
                   hintText: "Email",
                   label: Icon(Icons.email_outlined),
@@ -54,7 +72,7 @@ class _LoginState extends State<Login> {
               SizedBox(height: 25,),
 
               TextField(
-                controller: passwordController,
+                controller: loginPasswordController,
                 decoration: const InputDecoration(
                     hintText: "Password",
                     label: Icon(Icons.password_outlined),
@@ -67,7 +85,9 @@ class _LoginState extends State<Login> {
               SizedBox(height: 25,),
 
               ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () async{
+                    await login();
+                  },
                   child: Text(
                       "Login",
                   ),

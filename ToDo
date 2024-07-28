@@ -1,0 +1,1 @@
+1. Post login and Signup, users shouldn't be able to navigate back to the login/signup page after text editting controllers are disposed

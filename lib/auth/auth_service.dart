@@ -1,13 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
+
+// class containing all authentication related functions(login, sign up, sign out etc.)
 class AuthService{
 
-  final _auth = FirebaseAuth.instance; // storing the firebase auth instance in _auth
+  final _authInstance = FirebaseAuth.instance; // storing the firebase auth instance in _auth
 
   Future<User?> makeUserWithEmailAndPassword(String email, String password) async {
 
     try{
-      final credentials = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+      final credentials = await _authInstance.createUserWithEmailAndPassword(email: email, password: password);
       return credentials.user;
     }catch(e) {
       print("Error with creating user " + e.toString());
@@ -19,7 +21,7 @@ class AuthService{
   Future<User?> signWithEmailAndPassword(String email, String password) async {
 
     try{
-      final credentials = await _auth.signInWithEmailAndPassword(email: email, password: password);
+      final credentials = await _authInstance.signInWithEmailAndPassword(email: email, password: password);
       return credentials.user;
     }catch(e) {
       print("Error with creating user");
@@ -30,7 +32,8 @@ class AuthService{
 
   Future<void> signOut() async {
     try{
-      await _auth.signOut();
+      await _authInstance.signOut();
+      print("User signed out successfully");
     } catch (e) {
       print("Error with Sign Out");
     }

@@ -18,9 +18,11 @@ class _SignUpState extends State<SignUp> {
   @override
   void dispose() {
     // function to dispose the controllers when user moves to another page
-    super.dispose();
+
     emailController.dispose();
     passwordController.dispose();
+    print("Sign up controllers Disposed Successfully");
+    super.dispose();
   }
 
   Future<void> signUp() async {
@@ -38,59 +40,58 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(25.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "Sign Up",
-                style: TextStyle(
-                    fontSize: 50,
-                    fontWeight: FontWeight.bold
-                ),
+      body: Padding(
+        padding: const EdgeInsets.all(25.0),
+        child: ListView(
+          children: [
+            SizedBox(height: 150,),
+
+            Text(
+              "Sign Up",
+              style: TextStyle(
+                  fontSize: 50,
+                  fontWeight: FontWeight.bold
               ),
+            ),
 
-              SizedBox(height: 50,),
+            SizedBox(height: 50,),
 
-              TextField(
-                controller: emailController,
-                decoration: const InputDecoration(
-                    hintText: "Email",
-                    label: Icon(Icons.email_outlined),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(25))
-                    )
-                ),
+            TextField(
+              controller: emailController,
+              decoration: const InputDecoration(
+                  hintText: "Email",
+                  label: Icon(Icons.email_outlined),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(25))
+                  )
               ),
+            ),
 
-              SizedBox(height: 25,),
+            SizedBox(height: 25,),
 
-              TextField(
-                controller: passwordController,
-                decoration: const InputDecoration(
-                    hintText: "Password",
-                    label: Icon(Icons.password_outlined),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(25))
-                    )
-                ),
+            TextField(
+              controller: passwordController,
+              decoration: const InputDecoration(
+                  hintText: "Password",
+                  label: Icon(Icons.password_outlined),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(25))
+                  )
               ),
+            ),
 
-              SizedBox(height: 25,),
+            SizedBox(height: 25,),
 
-              ElevatedButton(
-                onPressed: () async {
-                  await signUp();
-              },
-                child: Text(
-                  "Signup",
-                ),
+            ElevatedButton(
+              onPressed: () async {
+                await signUp();
+            },
+              child: Text(
+                "Signup",
               ),
+            ),
 
-            ],
-          ),
+          ],
         ),
       ),
     );
