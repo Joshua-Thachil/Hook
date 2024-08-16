@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:musicapp/auth/auth_service.dart';
 import 'package:musicapp/screens/HomePage.dart';
-import 'package:musicapp/screens/SignUp.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -231,14 +230,14 @@ class _LoginState extends State<Login> {
 
               const SizedBox(height: 15,),
 
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
-                },
-                child: const Text(
-                  "Signup",
-                ),
-              ),
+              // ElevatedButton(
+              //   onPressed: () {
+              //     Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
+              //   },
+              //   child: const Text(
+              //     "Signup",
+              //   ),
+              // ),
 
             ],
           ),

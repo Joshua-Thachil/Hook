@@ -24,7 +24,7 @@ class AuthService{
       final credentials = await _authInstance.signInWithEmailAndPassword(email: email, password: password);
       return credentials.user;
     }catch(e) {
-      print("Error with creating user");
+      print("Error with Logging user in");
     }
 
     return null;
