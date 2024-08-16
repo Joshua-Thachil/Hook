@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:musicapp/screens/Login.dart';
+import 'package:musicapp/screens/SignUp.dart';
 
 class InitScreen extends StatefulWidget {
   const InitScreen({super.key});
@@ -35,12 +37,12 @@ class _InitScreenState extends State<InitScreen> {
                   options: CarouselOptions(
                     height: 500,
                     viewportFraction: 1
-                  )
+                  ),
               ),
               
               ElevatedButton(
                 onPressed: () {
-
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const Login()));
                 },
                 style: ElevatedButton.styleFrom(
                   elevation: 0,
@@ -58,13 +60,13 @@ class _InitScreenState extends State<InitScreen> {
                     color: Colors.black,
                   ),
                 ),
-              ),
+              ), // Log in Button
 
               SizedBox(height: 35,),
 
               ElevatedButton(
                 onPressed: () {
-
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const SignUp()));
                 },
                 style: ElevatedButton.styleFrom(
                   elevation: 0,
@@ -82,7 +84,7 @@ class _InitScreenState extends State<InitScreen> {
                     color: const Color(0xffF4FDF6),
                   ),
                 ),
-              ),
+              ), // Register Button
             ],
           ),
         ),

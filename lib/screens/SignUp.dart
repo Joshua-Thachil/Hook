@@ -44,10 +44,15 @@ class _SignUpState extends State<SignUp> {
       appBar: AppBar(
         toolbarHeight: 120.0,
         backgroundColor: Colors.transparent,
-        leading: const Icon(
-          Icons.arrow_back,
-          color: Colors.white,
-          size: 50,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+            size: 50,
+          ),
         ),
       ),
       body: Center(
@@ -96,7 +101,7 @@ class _SignUpState extends State<SignUp> {
                   style: ElevatedButton.styleFrom(
                     elevation: 0,
                     fixedSize: const Size(366, 70),
-                    backgroundColor: const Color(0xff1E1E1E),
+                    backgroundColor: const Color(0xffEDFFF4),
                   ),
                   child: const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -110,7 +115,7 @@ class _SignUpState extends State<SignUp> {
                                   text: "Continue With ",
                                   style: TextStyle(
                                     fontSize: 18.3,
-                                    color: Colors.white,
+                                    color: Color(0xff0F1512),
                                     fontWeight: FontWeight.w400,
                                   ),
                                 ),
@@ -118,7 +123,7 @@ class _SignUpState extends State<SignUp> {
                                   text: "Google",
                                   style: TextStyle(
                                     fontSize: 18.3,
-                                    color: Color(0xff80AC97),
+                                    color: Color(0xff000000),
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -146,6 +151,7 @@ class _SignUpState extends State<SignUp> {
 
               TextField(
                 controller: emailController,
+                style: TextStyle(color: Colors.white),
                 decoration: const InputDecoration(
                   hintText: "email",
                   hintStyle: TextStyle(
@@ -161,12 +167,13 @@ class _SignUpState extends State<SignUp> {
                   ),
                   contentPadding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 18.0),
                 ),
-              ),
+              ), // Email text field
 
               const SizedBox(height: 25,),
 
               TextField(
                 controller: passwordController,
+                style: TextStyle(color: Colors.white),
                 decoration: const InputDecoration(
                   hintText: "password",
                   hintStyle: TextStyle(
@@ -182,23 +189,8 @@ class _SignUpState extends State<SignUp> {
                   ),
                   contentPadding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 18.0),
                 ),
-              ),
+              ), // Password text field
               const SizedBox(height: 15,),
-
-              Align(
-                alignment: Alignment.centerRight,
-                child: TextButton(
-                  onPressed: (){},
-                  child: const Text(
-                      "forgot password?",
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w300,
-                      )
-                  ),
-                ),
-              ),
 
               const SizedBox(height: 15,),
 

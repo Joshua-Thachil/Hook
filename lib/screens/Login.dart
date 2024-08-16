@@ -45,10 +45,15 @@ class _LoginState extends State<Login> {
       appBar: AppBar(
         toolbarHeight: 120.0,
         backgroundColor: Colors.transparent,
-        leading: const Icon(
-          Icons.arrow_back,
-          color: Colors.white,
-          size: 50,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+            size: 50,
+          ),
         ),
       ),
       body: Center(
@@ -99,7 +104,7 @@ class _LoginState extends State<Login> {
                 style: ElevatedButton.styleFrom(
                   elevation: 0,
                   fixedSize: const Size(366, 70),
-                  backgroundColor: const Color(0xff1E1E1E),
+                  backgroundColor: const Color(0xffEDFFF4),
                 ),
                 child: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -113,7 +118,7 @@ class _LoginState extends State<Login> {
                             text: "Continue With ",
                             style: TextStyle(
                               fontSize: 18.3,
-                              color: Colors.white,
+                              color: Color(0xff0F1512),
                               fontWeight: FontWeight.w400,
                             ),
                           ),
@@ -121,7 +126,7 @@ class _LoginState extends State<Login> {
                             text: "Google",
                             style: TextStyle(
                               fontSize: 18.3,
-                              color: Color(0xff80AC97),
+                              color: Color(0xff000000),
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -149,6 +154,7 @@ class _LoginState extends State<Login> {
 
               TextField(
                 controller: loginEmailController,
+                style: TextStyle(color: Colors.white),
                 decoration: const InputDecoration(
                   hintText: "email",
                   hintStyle: TextStyle(
@@ -164,12 +170,13 @@ class _LoginState extends State<Login> {
                   ),
                   contentPadding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 18.0),
                 ),
-              ),
+              ), // Email text Field
 
               const SizedBox(height: 25,),
 
               TextField(
                 controller: loginPasswordController,
+                style: TextStyle(color: Colors.white),
                 decoration: const InputDecoration(
                     hintText: "password",
                     hintStyle: TextStyle(
@@ -185,7 +192,7 @@ class _LoginState extends State<Login> {
                     ),
                   contentPadding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 18.0),
                 ),
-              ),
+              ), // Password text Field
 
               const SizedBox(height: 15,),
 
