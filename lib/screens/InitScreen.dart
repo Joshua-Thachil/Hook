@@ -36,7 +36,8 @@ class _InitScreenState extends State<InitScreen> {
                   items: carouselItems,
                   options: CarouselOptions(
                     height: 500,
-                    viewportFraction: 1
+                    viewportFraction: 1,
+                    autoPlay: true,
                   ),
               ),
               
