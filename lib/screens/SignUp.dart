@@ -37,6 +37,19 @@ class _SignUpState extends State<SignUp> {
     }
   }
 
+  loginWithGoogle () async {
+    final googleUser = _authClass.signInWithGoogle();
+
+    if(googleUser != null) {
+      Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
+      dispose();
+      print("User Logged in Successfully");
+    }
+    else {
+      print("Error with User Login");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -97,7 +110,9 @@ class _SignUpState extends State<SignUp> {
               const SizedBox(height: 90,),
 
               ElevatedButton(
-                  onPressed: (){},
+                  onPressed: () async {
+                    await loginWithGoogle();
+                  },
                   style: ElevatedButton.styleFrom(
                     elevation: 0,
                     fixedSize: const Size(366, 70),

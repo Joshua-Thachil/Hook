@@ -29,6 +29,19 @@ class _LoginState extends State<Login> {
     }
   }
 
+  loginWithGoogle () async {
+    final googleUser = _auth.signInWithGoogle();
+
+    if(googleUser != null) {
+      Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
+      dispose();
+      print("User Logged in Successfully");
+    }
+    else {
+      print("Error with User Login");
+    }
+  }
+
   @override
   void dispose() {
     // function to dispose the controllers when user moves to another page
@@ -100,7 +113,9 @@ class _LoginState extends State<Login> {
               const SizedBox(height: 90,),
 
               ElevatedButton(
-                onPressed: (){},
+                onPressed: () async {
+                  loginWithGoogle();
+                },
                 style: ElevatedButton.styleFrom(
                   elevation: 0,
                   fixedSize: const Size(366, 70),
