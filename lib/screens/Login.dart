@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:musicapp/auth/auth_service.dart';
 import 'package:musicapp/screens/HomePage.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -62,7 +63,7 @@ class _LoginState extends State<Login> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back,
             color: Colors.white,
             size: 50,
@@ -121,12 +122,16 @@ class _LoginState extends State<Login> {
                   fixedSize: const Size(366, 70),
                   backgroundColor: const Color(0xffEDFFF4),
                 ),
-                child: const Row(
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Icon(Icons.cached_sharp),
-                    Text.rich(
+                    SvgPicture.asset(
+                      'assets/icons/icons8-google.svg',
+                      width: 24,
+                      height: 24,
+                    ),
+                    const Text.rich(
                       TextSpan(
                         children: [
                           TextSpan(
@@ -169,7 +174,7 @@ class _LoginState extends State<Login> {
 
               TextField(
                 controller: loginEmailController,
-                style: TextStyle(color: Colors.white),
+                style: const TextStyle(color: Colors.white),
                 decoration: const InputDecoration(
                   hintText: "email",
                   hintStyle: TextStyle(
@@ -187,11 +192,11 @@ class _LoginState extends State<Login> {
                 ),
               ), // Email text Field
 
-              const SizedBox(height: 25,),
+              const SizedBox(height: 15,),
 
               TextField(
                 controller: loginPasswordController,
-                style: TextStyle(color: Colors.white),
+                style: const TextStyle(color: Colors.white),
                 decoration: const InputDecoration(
                     hintText: "password",
                     hintStyle: TextStyle(

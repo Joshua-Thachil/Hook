@@ -14,10 +14,76 @@ class _InitScreenState extends State<InitScreen> {
 
   List<Widget> carouselItems = [
     Container(
-      decoration: BoxDecoration(
+      height: 300,
+      decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/images/band-performing-live-music.png')
+          image: AssetImage('assets/images/band-performing-live-music.png'),
+        ),
+      ),
+      child: const Align(
+        alignment: Alignment.bottomCenter,
+        child: Text(
+          'Find musicians near you and collaborate with ease',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 18,
+          ),
+          textAlign: TextAlign.center,
+        ),
+      )
+    ),
+    Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('assets/images/podcast-concept-illustration.png'),
         )
+      ),
+      child: const Align(
+        alignment: Alignment.bottomCenter,
+        child: Text(
+          'Book jam rooms with a click',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 18,
+          ),
+          textAlign: TextAlign.center,
+        ),
+      ),
+    ),
+    Container(
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/images/rock-band-concept-illustration.png'),
+            )
+        ),
+      child: const Align(
+        alignment: Alignment.bottomCenter,
+        child: Text(
+          'Connect and build your network',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 18,
+          ),
+          textAlign: TextAlign.center,
+        ),
+      ),
+    ),
+    Container(
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/images/woman-headphones-singing-recording-studio.png'),
+            )
+        ),
+      child: const Align(
+        alignment: Alignment.bottomCenter,
+        child: Text(
+          'Showcase your skill to the world',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 18,
+          ),
+          textAlign: TextAlign.center,
+        ),
       ),
     ),
   ];
@@ -31,15 +97,17 @@ class _InitScreenState extends State<InitScreen> {
           padding: const EdgeInsets.only(left: 32, right: 32),
           child: ListView(
             children: [
-              
+              SizedBox(height: 50),
               CarouselSlider(
                   items: carouselItems,
                   options: CarouselOptions(
-                    height: 500,
+                    height: 400,
                     viewportFraction: 1,
                     autoPlay: true,
                   ),
               ),
+
+              SizedBox(height: 200,),
               
               ElevatedButton(
                 onPressed: () {
@@ -63,7 +131,7 @@ class _InitScreenState extends State<InitScreen> {
                 ),
               ), // Log in Button
 
-              SizedBox(height: 35,),
+              SizedBox(height: 25,),
 
               ElevatedButton(
                 onPressed: () {

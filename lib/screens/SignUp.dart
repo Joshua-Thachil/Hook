@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:musicapp/auth/auth_service.dart';
 import 'package:musicapp/screens/HomePage.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -29,7 +30,7 @@ class _SignUpState extends State<SignUp> {
     final user = await _authClass.makeUserWithEmailAndPassword(emailController.text, passwordController.text);
     if(user != null) {
       print("User Created Successfully");
-      Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
       dispose();
     }
     else {
@@ -118,12 +119,16 @@ class _SignUpState extends State<SignUp> {
                     fixedSize: const Size(366, 70),
                     backgroundColor: const Color(0xffEDFFF4),
                   ),
-                  child: const Row(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Icon(Icons.cached_sharp),
-                      Text.rich(
+                      SvgPicture.asset(
+                        'assets/icons/icons8-google.svg',
+                        width: 24,
+                        height: 24,
+                      ),
+                      const Text.rich(
                           TextSpan(
                               children: [
                                 TextSpan(
@@ -166,7 +171,7 @@ class _SignUpState extends State<SignUp> {
 
               TextField(
                 controller: emailController,
-                style: TextStyle(color: Colors.white),
+                style: const TextStyle(color: Colors.white),
                 decoration: const InputDecoration(
                   hintText: "email",
                   hintStyle: TextStyle(
@@ -184,11 +189,11 @@ class _SignUpState extends State<SignUp> {
                 ),
               ), // Email text field
 
-              const SizedBox(height: 25,),
+              const SizedBox(height: 15,),
 
               TextField(
                 controller: passwordController,
-                style: TextStyle(color: Colors.white),
+                style: const TextStyle(color: Colors.white),
                 decoration: const InputDecoration(
                   hintText: "password",
                   hintStyle: TextStyle(
