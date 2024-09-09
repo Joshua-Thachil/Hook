@@ -4,6 +4,7 @@ import 'package:musicapp/auth/auth_service.dart';
 import 'package:musicapp/components/InputFields.dart';
 import 'package:musicapp/screens/HomePage.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'ProfileCreation1.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -22,7 +23,7 @@ class _LoginState extends State<Login> {
     final user = await _auth.signWithEmailAndPassword(loginEmailController.text, loginPasswordController.text);
 
     if(user != null) {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileCreation1()));
       dispose();
       print("User Logged in Successfully");
     }
@@ -35,7 +36,7 @@ class _LoginState extends State<Login> {
     final googleUser = _auth.signInWithGoogle();
 
     if(googleUser != null) {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileCreation1()));
       dispose();
       print("User Logged in Successfully");
     }
