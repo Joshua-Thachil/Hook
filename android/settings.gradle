@@ -8,6 +8,7 @@ pluginManagement {
     }
     settings.ext.flutterSdkPath = flutterSdkPath()
 
+    
     includeBuild("${settings.ext.flutterSdkPath}/packages/flutter_tools/gradle")
 
     plugins {

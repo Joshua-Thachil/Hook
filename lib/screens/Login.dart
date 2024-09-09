@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:musicapp/auth/auth_service.dart';
+import 'package:musicapp/components/InputFields.dart';
 import 'package:musicapp/screens/HomePage.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -113,7 +114,7 @@ class _LoginState extends State<Login> {
 
               const SizedBox(height: 90,),
 
-              ElevatedButton(
+              ElevatedButton( // Google Login Button
                 onPressed: () async {
                   loginWithGoogle();
                 },
@@ -172,25 +173,7 @@ class _LoginState extends State<Login> {
 
               const SizedBox(height: 20,),
 
-              TextField(
-                controller: loginEmailController,
-                style: const TextStyle(color: Colors.white),
-                decoration: const InputDecoration(
-                  hintText: "email",
-                  hintStyle: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18.3,
-                    fontWeight: FontWeight.w400,
-                  ),
-                  filled: true,
-                  fillColor: Color(0xff1E1E1E),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                    borderSide: BorderSide.none,
-                  ),
-                  contentPadding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 18.0),
-                ),
-              ), // Email text Field
+              InputField(InputController: loginEmailController, hint: "Email"), // Email text Field
 
               const SizedBox(height: 15,),
 
