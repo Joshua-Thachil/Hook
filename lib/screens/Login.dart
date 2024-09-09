@@ -178,25 +178,7 @@ class _LoginState extends State<Login> {
 
               const SizedBox(height: 15,),
 
-              TextField(
-                controller: loginPasswordController,
-                style: const TextStyle(color: Colors.white),
-                decoration: const InputDecoration(
-                    hintText: "password",
-                    hintStyle: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18.3,
-                      fontWeight: FontWeight.w400,
-                    ),
-                    filled: true,
-                    fillColor: Color(0xff1E1E1E),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                        borderRadius: BorderRadius.all(Radius.circular(10))
-                    ),
-                  contentPadding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 18.0),
-                ),
-              ), // Password text Field
+              InputField(InputController: loginPasswordController, hint: "Password"),
 
               const SizedBox(height: 15,),
 
@@ -217,7 +199,7 @@ class _LoginState extends State<Login> {
 
               const SizedBox(height: 15,),
 
-              ElevatedButton(
+              ElevatedButton( // Login Button
                   onPressed: () async{
                     await login();
                   },
@@ -240,16 +222,6 @@ class _LoginState extends State<Login> {
               ),
 
               const SizedBox(height: 15,),
-
-              // ElevatedButton(
-              //   onPressed: () {
-              //     Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
-              //   },
-              //   child: const Text(
-              //     "Signup",
-              //   ),
-              // ),
-
             ],
           ),
         ),

@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 
-class InputField extends StatelessWidget {
+class InputField extends StatelessWidget { // Basic Small Input Text Field
   const InputField({
     super.key,
     required this.InputController,
@@ -14,9 +14,9 @@ class InputField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       controller: InputController,
-      style: const TextStyle(color: Colors.white),
-      decoration: const InputDecoration(
-        hintText: "email",
+      style: TextStyle(color: Colors.white),
+      decoration: InputDecoration(
+        hintText: hint,
         hintStyle: TextStyle(
           color: Colors.white,
           fontSize: 18.3,

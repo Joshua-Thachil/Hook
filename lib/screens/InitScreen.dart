@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:musicapp/components/Buttons.dart';
 import 'package:musicapp/screens/Login.dart';
 import 'package:musicapp/screens/SignUp.dart';
 
@@ -109,27 +110,7 @@ class _InitScreenState extends State<InitScreen> {
 
               SizedBox(height: 200,),
               
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const Login()));
-                },
-                style: ElevatedButton.styleFrom(
-                  elevation: 0,
-                  backgroundColor: const Color(0xff90DAB9),
-                  fixedSize: const Size(366, 61.6),
-                  shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10))
-                  ),
-                ),
-                child: const Text(
-                  "Log In",
-                  style: TextStyle(
-                    fontSize: 18.3,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
-                ),
-              ), // Log in Button
+              PrimaryButton(button_text: "Login"), // Log in Button
 
               SizedBox(height: 25,),
 
