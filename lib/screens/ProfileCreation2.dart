@@ -16,7 +16,7 @@ class _ProfileCreation2State extends State<ProfileCreation2> {
     return Scaffold(
       backgroundColor: const Color(0xff101010),
       appBar: AppBar(
-        backgroundColor: WidgetStateColor.transparent,
+        backgroundColor: Colors.transparent,
         automaticallyImplyLeading: true,
         iconTheme: const IconThemeData(
           color: Colors.white,
@@ -46,7 +46,7 @@ class _ProfileCreation2State extends State<ProfileCreation2> {
       ),
       bottomNavigationBar: BottomAppBar(
         padding: const EdgeInsets.only(bottom: 20, right: 30),
-        color: WidgetStateColor.transparent,
+        color: Colors.transparent,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [

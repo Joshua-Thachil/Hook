@@ -139,7 +139,7 @@ class _ProfileCreation1State extends State<ProfileCreation1> {
       ),
       bottomNavigationBar: BottomAppBar(
         padding: const EdgeInsets.only(bottom: 20, right: 30),
-        color: WidgetStateColor.transparent,
+        color: Colors.transparent,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
