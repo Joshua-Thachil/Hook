@@ -34,3 +34,48 @@ class PrimaryButton extends StatelessWidget {
     );
   }
 }
+class NextButton extends StatelessWidget {
+  final String text;
+  final IconData icon;
+  final VoidCallback onPressed;
+
+  const NextButton({
+    Key? key,
+    required this.text,
+    required this.icon,
+    required this.onPressed,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: const Color(0xff90DAB9),
+        fixedSize: const Size(125, 50),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+        ),
+      ),
+      onPressed: onPressed,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            text,
+            style: const TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+            ),
+          ),
+          Icon(
+            icon,
+            color: Colors.black,
+            size: 30,
+          ),
+        ],
+      ),
+    );
+  }
+}
+

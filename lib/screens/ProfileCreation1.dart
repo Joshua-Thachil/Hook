@@ -4,6 +4,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:musicapp/components/InputFields.dart';
 import 'package:musicapp/components/SegmentedProgressBar.dart';
 import 'ProfileCreation2.dart';
+import 'package:musicapp/components/Buttons.dart';
+
 
 class ProfileCreation1 extends StatefulWidget {
   const ProfileCreation1({super.key});
@@ -143,34 +145,13 @@ class _ProfileCreation1State extends State<ProfileCreation1> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xff90DAB9),
-                fixedSize: const Size(125, 50),
-                shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10))
-                ),
-              ),
-              onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileCreation2()));},
-              child: const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Next",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                    ),
-                  ),
-                  Icon(
-                    Icons.arrow_forward,
-                    color: Colors.black,
-                    size: 30,
-                  )
-                ],
-              ),
-            ),
+            NextButton(
+              text: "Next",
+              icon: Icons.arrow_forward,
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileCreation2()));
+              },
+            )
           ],
         ),
       ),
