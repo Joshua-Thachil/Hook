@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:musicapp/components/InputFields.dart';
 import 'package:musicapp/components/SegmentedProgressBar.dart';
+import 'package:musicapp/components/Buttons.dart';
+
 class ProfileCreation2 extends StatefulWidget {
   const ProfileCreation2({super.key});
 
@@ -50,34 +52,13 @@ class _ProfileCreation2State extends State<ProfileCreation2> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xff90DAB9),
-                fixedSize: const Size(125, 50),
-                shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10))
-                ),
-              ),
-              onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileCreation2()));},
-              child: const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Next",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                    ),
-                  ),
-                  Icon(
-                    Icons.arrow_forward,
-                    color: Colors.black,
-                    size: 30,
-                  )
-                ],
-              ),
-            ),
+            NextButton(
+              text: "Next",
+              icon: Icons.arrow_forward,
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileCreation2()));
+              },
+            )
           ],
         ),
       ),
