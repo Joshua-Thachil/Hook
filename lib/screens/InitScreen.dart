@@ -89,6 +89,11 @@ class _InitScreenState extends State<InitScreen> {
     ),
   ];
 
+  void LoginButtonPress()
+  {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => const Login()));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -110,7 +115,7 @@ class _InitScreenState extends State<InitScreen> {
 
               SizedBox(height: 200,),
               
-              PrimaryButton(button_text: "Login"), // Log in Button
+              PrimaryButton(button_text: "Login", onPressed: LoginButtonPress), // Log in Button
 
               SizedBox(height: 25,),
 

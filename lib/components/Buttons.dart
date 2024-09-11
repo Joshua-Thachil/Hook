@@ -4,17 +4,16 @@ class PrimaryButton extends StatelessWidget {
   const PrimaryButton({
     super.key,
     required this.button_text,
+    required this.onPressed
   });
 
   final String button_text;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {
-        // Navigator.push(context, MaterialPageRoute(builder: (context) => const Login()));
-
-      },
+      onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         elevation: 0,
         backgroundColor: const Color(0xff90DAB9),
