@@ -41,7 +41,7 @@ class _ProfileCreation2State extends State<ProfileCreation2> {
                 ),
               ),
               const SizedBox(height: 30),
-              InputField(InputController: descriptioncontroller, hint: 'Enter description'),
+              InputField(InputController: descriptioncontroller, hint: 'Enter description', height: 5,),
             ],
           ),
         ),

@@ -36,107 +36,109 @@ class _ProfileCreation1State extends State<ProfileCreation1> {
       backgroundColor: const Color(0xff101010),
       body: Padding(
         padding: const EdgeInsets.only(left: 32, right: 32),
-        child: Center(
-          child: Column(
-            children: [
-              SizedBox(height: 60,),
-              SegmentedProgressBar(totalSteps: 5,currentStep:1,),
-              SizedBox(height: 160,),
-              Stack(
-                children: [
-                  CircleAvatar(
-                    radius: 70,
-                    backgroundColor: const Color(0xffCFE9DA),
-                    backgroundImage: _image != null ? FileImage(_image!) : null,
-                    child: _image == null
-                        ? ClipOval(child: Image.asset('assets/images/image 9.png', fit: BoxFit.cover, ))
-                        : null,
-                  ),
-                  Positioned(
-                    bottom: 0,
-                    right: 0,
-                    left: 0,
-                    child: ElevatedButton.icon(
-                      icon: const Icon(
-                        Icons.edit,
-                        size: 30,
-                        color: Colors.black,
-                      ),
-                      label: const Text(""),
-                      onPressed: () {
-                        showModalBottomSheet(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return Container(
-                                decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(20),
-                                      topRight: Radius.circular(20)),
-                                  color: Color(0xff1E1E1E),
-                                ),
-                                padding: const EdgeInsets.all(16),
-                                height: 110,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        IconButton(
-                                          icon: const Icon(
-                                            Icons.camera_alt,
-                                            size: 40,
-                                            color: Color(0xffCFE9DA),
+        child: ListView(
+          children: [Center(
+            child: Column(
+              children: [
+                SizedBox(height: 60,),
+                SegmentedProgressBar(totalSteps: 5,currentStep:1,),
+                SizedBox(height: 160,),
+                Stack(
+                  children: [
+                    CircleAvatar(
+                      radius: 70,
+                      backgroundColor: const Color(0xffCFE9DA),
+                      backgroundImage: _image != null ? FileImage(_image!) : null,
+                      child: _image == null
+                          ? ClipOval(child: Image.asset('assets/images/image 9.png', fit: BoxFit.cover, ))
+                          : null,
+                    ),
+                    Positioned(
+                      bottom: 0,
+                      right: 0,
+                      left: 0,
+                      child: ElevatedButton.icon(
+                        icon: const Icon(
+                          Icons.edit,
+                          size: 30,
+                          color: Colors.black,
+                        ),
+                        label: const Text(""),
+                        onPressed: () {
+                          showModalBottomSheet(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return Container(
+                                  decoration: const BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(20),
+                                        topRight: Radius.circular(20)),
+                                    color: Color(0xff1E1E1E),
+                                  ),
+                                  padding: const EdgeInsets.all(16),
+                                  height: 110,
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          IconButton(
+                                            icon: const Icon(
+                                              Icons.camera_alt,
+                                              size: 40,
+                                              color: Color(0xffCFE9DA),
+                                            ),
+                                            onPressed: () =>
+                                                _pickImage(ImageSource.camera),
                                           ),
-                                          onPressed: () =>
-                                              _pickImage(ImageSource.camera),
-                                        ),
-                                        const Text(
-                                          "Take a picture",
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.normal,
-                                            color: Colors.white,
+                                          const Text(
+                                            "Take a picture",
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.normal,
+                                              color: Colors.white,
+                                            ),
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                    Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        IconButton(
-                                          icon: const Icon(Icons.photo_library,
-                                              size: 40, color: Color(0xffCFE9DA)),
-                                          onPressed: () =>
-                                              _pickImage(ImageSource.gallery),
-                                        ),
-                                        const Text(
-                                          "Pick from gallery",
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.normal,
-                                            color: Colors.white,
+                                        ],
+                                      ),
+                                      Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          IconButton(
+                                            icon: const Icon(Icons.photo_library,
+                                                size: 40, color: Color(0xffCFE9DA)),
+                                            onPressed: () =>
+                                                _pickImage(ImageSource.gallery),
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              );
-                            });
-                      },
-                      style: ButtonStyle(
-                        elevation: WidgetStateProperty.all(0),
-                        backgroundColor: WidgetStateProperty.all(Colors.transparent),
-                        padding: WidgetStateProperty.all(EdgeInsets.zero),
+                                          const Text(
+                                            "Pick from gallery",
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.normal,
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              });
+                        },
+                        style: ButtonStyle(
+                          elevation: WidgetStateProperty.all(0),
+                          backgroundColor: WidgetStateProperty.all(Colors.transparent),
+                          padding: WidgetStateProperty.all(EdgeInsets.zero),
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 30),
-              InputField(InputController: usernamecontroller, hint: 'Enter your username', ),
-              const SizedBox(height: 30),
-            ],
-          ),
+                  ],
+                ),
+                const SizedBox(height: 30),
+                InputField(InputController: usernamecontroller, hint: 'Enter your username', height: 1,),
+                const SizedBox(height: 30),
+              ],
+            ),
+          )],
         ),
       ),
       bottomNavigationBar: BottomAppBar(

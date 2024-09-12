@@ -174,11 +174,11 @@ class _LoginState extends State<Login> {
 
               const SizedBox(height: 20,),
 
-              InputField(InputController: loginEmailController, hint: "Email"), // Email text Field
+              InputField(InputController: loginEmailController, hint: "Email", height: 1,), // Email Text Field
 
               const SizedBox(height: 15,),
 
-              InputField(InputController: loginPasswordController, hint: "Password"),
+              InputField(InputController: loginPasswordController, hint: "Password", height: 1,), // Password Text Field
 
               const SizedBox(height: 15,),
 

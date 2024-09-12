@@ -4,15 +4,19 @@ class InputField extends StatelessWidget { // Basic Small Input Text Field
   const InputField({
     super.key,
     required this.InputController,
-    required this.hint
+    required this.hint,
+    required this.height
   });
 
   final TextEditingController InputController;
   final String hint;
+  final int height;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      maxLines: height,
+      minLines: height,
       controller: InputController,
       style: TextStyle(color: Colors.white),
       decoration: InputDecoration(
