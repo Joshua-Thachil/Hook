@@ -78,3 +78,45 @@ class NextButton extends StatelessWidget {
   }
 }
 
+class GridButton extends StatelessWidget {
+  final String text;
+  final Color backgroundColor;
+  final Color textColor;
+  final VoidCallback onPressed;
+  final double? height;  // Optional height
+  final double? width;   // Optional width
+
+  const GridButton({
+    Key? key,
+    required this.text,
+    required this.backgroundColor,
+    required this.textColor,
+    required this.onPressed,
+    this.height,  // Optional
+    this.width,   // Optional
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: height,
+      width: width,
+      child: ElevatedButton(
+        onPressed: onPressed,
+        child: Text(
+          text,
+          style: TextStyle(color: textColor, fontSize: 20),
+          textAlign: TextAlign.center,
+        ),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: backgroundColor,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+

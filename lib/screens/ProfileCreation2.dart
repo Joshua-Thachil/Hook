@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:musicapp/components/InputFields.dart';
 import 'package:musicapp/components/SegmentedProgressBar.dart';
 import 'package:musicapp/components/Buttons.dart';
+import 'ProfileCreation3.dart';
 
 class ProfileCreation2 extends StatefulWidget {
   const ProfileCreation2({super.key});
@@ -56,7 +57,7 @@ class _ProfileCreation2State extends State<ProfileCreation2> {
               text: "Next",
               icon: Icons.arrow_forward,
               onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileCreation2()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileCreation3()));
               },
             )
           ],
