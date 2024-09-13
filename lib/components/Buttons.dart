@@ -77,7 +77,6 @@ class NextButton extends StatelessWidget {
     );
   }
 }
-
 class GridButton extends StatelessWidget {
   final String text;
   final Color backgroundColor;

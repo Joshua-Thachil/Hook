@@ -4,6 +4,7 @@ import 'package:musicapp/components/SegmentedProgressBar.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:musicapp/components/Buttons.dart';
 import 'package:musicapp/Style/Palette.dart';
+import 'ProfileCreation4.dart';
 
 class ProfileCreation3 extends StatefulWidget {
   const ProfileCreation3({super.key});
@@ -88,7 +89,7 @@ class _ProfileCreation3State extends State<ProfileCreation3> with TickerProvider
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff101010),
+      backgroundColor: palette.bg,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         automaticallyImplyLeading: true,
@@ -207,7 +208,7 @@ class _ProfileCreation3State extends State<ProfileCreation3> with TickerProvider
               text: "Next",
               icon: Icons.arrow_forward,
               onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileCreation3()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileCreation4()));
               },
             )
           ],
