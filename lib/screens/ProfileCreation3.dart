@@ -34,6 +34,7 @@ class _ProfileCreation3State extends State<ProfileCreation3> with TickerProvider
   bool _isButton = true; //for the transition animation
   late AnimationController _animationController;
   late Animation<Offset> _slideAnimation;
+  late Animation<double> _widthAnimation; //potential width animation
 
   //controller for the instrument text
   final TextEditingController instrumentcontroller = TextEditingController();
@@ -50,11 +51,19 @@ class _ProfileCreation3State extends State<ProfileCreation3> with TickerProvider
     );
     _slideAnimation = Tween<Offset>(
       begin: const Offset(0, 0),
-      end: const Offset(0, 1),
+      end: const Offset(0, 0),
     ).animate(CurvedAnimation(
       parent: _animationController,
       curve: Curves.easeInOut,
     ));
+    // _widthAnimation = Tween<double>(
+    //   begin: 60.0,  // Small width for button
+    //   end: MediaQuery.of(context).size.width,  // Full width for TextField
+    // ).animate(CurvedAnimation(
+    //   parent: _animationController,
+    //   curve: Curves.easeInOut,
+    // ));
+
   }
 
   //dispose
@@ -62,6 +71,18 @@ class _ProfileCreation3State extends State<ProfileCreation3> with TickerProvider
   void dispose() {
     _animationController.dispose();
     super.dispose();
+  }
+
+  //method to add a new instrument
+  void _addInstrument() {
+    final newInstrument = instrumentcontroller.text.trim();
+    if (newInstrument.isNotEmpty && !instrument_list.contains(newInstrument)) {
+      setState(() {
+        instrument_list.add(newInstrument);
+        selectedInstruments.add(true); // Add new selection state
+        instrumentcontroller.clear(); // Clear the text field
+      });
+    }
   }
 
   @override
@@ -120,7 +141,7 @@ class _ProfileCreation3State extends State<ProfileCreation3> with TickerProvider
                     ),
                 ],
               ),
-              SizedBox(height: 20,),
+              SizedBox(height: 50,),
               AnimatedSwitcher(
                 duration: const Duration(milliseconds: 300),
                 child: _isButton
@@ -154,11 +175,42 @@ class _ProfileCreation3State extends State<ProfileCreation3> with TickerProvider
                     hint: "Add your instrument",
                     InputController: instrumentcontroller,
                     height: 1,
+                    suffix: IconButton(
+                      onPressed: _addInstrument,
+                      icon: Icon(Icons.add, size: 50, color: palette.primary_text,),
+                      color: palette.accent,
+                      alignment: Alignment.centerRight,
+                      style: ButtonStyle(
+                        backgroundColor: WidgetStatePropertyAll(palette.accent),
+                        shape: WidgetStatePropertyAll(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          )
+                        )
+                      ),
+                    ),
                   )
                 ),
               ),
+              SizedBox(height: 50,),
             ],
           ),
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        padding: const EdgeInsets.only(bottom: 20, right: 30),
+        color: Colors.transparent,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            NextButton(
+              text: "Next",
+              icon: Icons.arrow_forward,
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileCreation3()));
+              },
+            )
+          ],
         ),
       ),
     );

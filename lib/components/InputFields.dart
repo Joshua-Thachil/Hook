@@ -5,12 +5,14 @@ class InputField extends StatelessWidget { // Basic Small Input Text Field
     super.key,
     required this.InputController,
     required this.hint,
-    required this.height
+    required this.height,
+    this.suffix,
   });
 
   final TextEditingController InputController;
   final String hint;
   final int height;
+  final IconButton? suffix;
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +35,7 @@ class InputField extends StatelessWidget { // Basic Small Input Text Field
           borderSide: BorderSide.none,
         ),
         contentPadding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 18.0),
+        suffixIcon: suffix,
       ),
     );
   }
