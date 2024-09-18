@@ -15,10 +15,10 @@ class _InitScreenState extends State<InitScreen> {
 
   List<Widget> carouselItems = [
     Container(
-      height: 300,
+      height: 500,
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/images/band-performing-live-music.png'),
+          image: AssetImage('assets/images/allen illus1.png'),
         ),
       ),
       child: const Align(
@@ -107,13 +107,13 @@ class _InitScreenState extends State<InitScreen> {
               CarouselSlider(
                   items: carouselItems,
                   options: CarouselOptions(
-                    height: 400,
+                    height: 500,
                     viewportFraction: 1,
                     autoPlay: true,
                   ),
               ),
 
-              SizedBox(height: 200,),
+              SizedBox(height: 100,),
               
               PrimaryButton(button_text: "Login", onPressed: LoginButtonPress), // Log in Button
 
