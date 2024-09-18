@@ -3,6 +3,7 @@ import 'package:musicapp/Style/Palette.dart';
 import 'package:musicapp/components/SegmentedProgressBar.dart';
 import 'package:musicapp/components/Buttons.dart';
 import 'package:musicapp/components/InputFields.dart';
+import '../components/Globals.dart';
 import 'ProflieCreation5.dart';
 
 class ListItem {
@@ -20,6 +21,10 @@ class ProfileCreation4 extends StatefulWidget {
 }
 
 class _ProfileCreation4State extends State<ProfileCreation4> with TickerProviderStateMixin{
+
+  double height = Globals.screenHeight;
+  double width = Globals.screenWidth;
+
   List<ListItem> genreList = [];
   final Palette palette = Palette();
   late Color currentBackgroundColor;

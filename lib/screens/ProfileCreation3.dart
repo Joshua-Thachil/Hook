@@ -4,6 +4,7 @@ import 'package:musicapp/components/SegmentedProgressBar.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:musicapp/components/Buttons.dart';
 import 'package:musicapp/Style/Palette.dart';
+import '../components/Globals.dart';
 import 'ProfileCreation4.dart';
 
 class ProfileCreation3 extends StatefulWidget {
@@ -14,6 +15,10 @@ class ProfileCreation3 extends StatefulWidget {
 }
 
 class _ProfileCreation3State extends State<ProfileCreation3> with TickerProviderStateMixin{
+
+  double height = Globals.screenHeight;
+  double width = Globals.screenWidth;
+
   final List<String> instrument_list = [
     'Guitar',
     'Keys',

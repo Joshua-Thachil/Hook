@@ -4,6 +4,7 @@ import 'package:musicapp/auth/auth_service.dart';
 import 'package:musicapp/components/InputFields.dart';
 import 'package:musicapp/screens/HomePage.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import '../components/Globals.dart';
 import 'ProfileCreation1.dart';
 
 class Login extends StatefulWidget {
@@ -14,6 +15,9 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+
+  double height = Globals.screenHeight;
+  double width = Globals.screenWidth;
 
   final _auth = AuthService();
   final loginEmailController = TextEditingController();

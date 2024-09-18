@@ -3,6 +3,8 @@ import 'package:musicapp/auth/auth_service.dart';
 import 'package:musicapp/screens/HomePage.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../components/Globals.dart';
+
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
 
@@ -11,6 +13,9 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+
+  double height = Globals.screenHeight;
+  double width = Globals.screenWidth;
 
   final emailController = TextEditingController();
   final passwordController = TextEditingController();

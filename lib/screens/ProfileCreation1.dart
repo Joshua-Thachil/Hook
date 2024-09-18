@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:musicapp/components/InputFields.dart';
 import 'package:musicapp/components/SegmentedProgressBar.dart';
+import '../components/Globals.dart';
 import 'ProfileCreation2.dart';
 import 'package:musicapp/components/Buttons.dart';
 
@@ -15,6 +16,10 @@ class ProfileCreation1 extends StatefulWidget {
 }
 
 class _ProfileCreation1State extends State<ProfileCreation1> {
+
+  double height = Globals.screenHeight;
+  double width = Globals.screenWidth;
+
   File? _image;
   final ImagePicker _picker = ImagePicker();
   final TextEditingController usernamecontroller = TextEditingController();

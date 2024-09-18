@@ -4,6 +4,8 @@ import 'package:musicapp/components/SegmentedProgressBar.dart';
 import 'package:musicapp/components/Buttons.dart';
 import 'ProfileCreation3.dart';
 
+import '../components/Globals.dart';
+
 class ProfileCreation2 extends StatefulWidget {
   const ProfileCreation2({super.key});
 
@@ -12,7 +14,10 @@ class ProfileCreation2 extends StatefulWidget {
 }
 
 class _ProfileCreation2State extends State<ProfileCreation2> {
+
   final TextEditingController descriptioncontroller = TextEditingController();
+  double height = Globals.screenHeight;
+  double width = Globals.screenWidth;
 
   @override
   Widget build(BuildContext context) {

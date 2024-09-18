@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:musicapp/components/Buttons.dart';
+import 'package:musicapp/components/Globals.dart';
 import 'package:musicapp/screens/Login.dart';
 import 'package:musicapp/screens/SignUp.dart';
 
@@ -12,6 +13,9 @@ class InitScreen extends StatefulWidget {
 }
 
 class _InitScreenState extends State<InitScreen> {
+
+  double height = Globals.screenHeight;
+  double width = Globals.screenWidth;
 
   List<Widget> carouselItems = [
     Container(

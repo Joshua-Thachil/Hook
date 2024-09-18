@@ -5,6 +5,8 @@ import 'package:musicapp/components/Buttons.dart';
 import 'package:musicapp/components/SegmentedProgressBar.dart';
 import 'package:musicapp/screens/HomePage.dart';
 
+import '../components/Globals.dart';
+
 
 class ProfileCreation5 extends StatefulWidget {
   const ProfileCreation5({super.key});
@@ -14,6 +16,9 @@ class ProfileCreation5 extends StatefulWidget {
 }
 
 class _ProfileCreation5State extends State<ProfileCreation5> {
+
+  double height = Globals.screenHeight;
+  double width = Globals.screenWidth;
 
   final Palette palette = Palette();
   final TextEditingController songsearchcontroller = TextEditingController();

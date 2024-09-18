@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:musicapp/auth/auth_service.dart';
 import 'package:musicapp/screens/Login.dart';
+import 'package:musicapp/components/Globals.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -10,6 +11,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  double height = Globals.screenHeight;
+  double width = Globals.screenWidth;
 
   final _authUser = AuthService();
 
