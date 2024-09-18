@@ -31,7 +31,7 @@ class _ProfileCreation5State extends State<ProfileCreation5> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.only(left: 32, right: 32),
         child: Center(
           child: ListView(
             children: [
@@ -46,9 +46,9 @@ class _ProfileCreation5State extends State<ProfileCreation5> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 10,),
+              SizedBox(height: 20,),
               InputField(InputController: songsearchcontroller,height: 1,hint: "Search your favourite songs",),
-              SizedBox(height: 10,),
+              SizedBox(height: 50,),
               Container(
                   height: 300,
                   child: Image(image: AssetImage('assets/images/allen illus1.png')),
@@ -56,8 +56,9 @@ class _ProfileCreation5State extends State<ProfileCreation5> {
               SizedBox(height: 10,),
               Center(
                 child: Text(
+                  textAlign: TextAlign.center,
                   "Create a small playlist to showcase your music taste",
-                  style: TextStyle(color: palette.primary_text ),
+                  style: TextStyle(color: palette.primary_text, fontSize: 16 ),
                 ),
               ),
             ],
@@ -65,18 +66,15 @@ class _ProfileCreation5State extends State<ProfileCreation5> {
         ),
       ),
       bottomNavigationBar: BottomAppBar(
-        padding: const EdgeInsets.only(bottom: 20, right: 30),
+        padding: const EdgeInsets.only(bottom: 20, right: 30, left: 30),
         color: Colors.transparent,
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0, 0, 150.0, 0),
-              child: TextButton(onPressed: () {}, child: Text("Skip for now?",
-              style: TextStyle(
-                color: palette.primary_text
-              ),)),
-            ),
+            TextButton(onPressed: () {}, child: Text("Skip for now?",
+            style: TextStyle(
+              color: palette.primary_text, fontSize: 16
+            ),)),
             NextButton(
               text: "Done",
               icon: Icons.arrow_forward,
