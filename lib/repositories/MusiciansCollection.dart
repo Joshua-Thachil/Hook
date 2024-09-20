@@ -12,6 +12,7 @@ class Musician {
   // User Info Variables
   final userEmail = AuthService.userData?.email;
   static String? name;
+  static String? description;
 
   // Create A user
   createUser(UserModel user) async {
@@ -22,7 +23,6 @@ class Musician {
   Future<void> addName(String username, DocumentSnapshot document) async
   {
     await Musicians.doc(document.id).update({
-      "email" : userEmail,
       "username" : username
     });
 
@@ -33,9 +33,17 @@ class Musician {
   Future<void> addDescription(String desc, DocumentSnapshot document) async
   {
     await Musicians.doc(document.id).update({
-      "email" : userEmail,
-      "username" : name,
       "description" : desc
+    });
+
+    description = desc;
+  }
+
+  // Add Instruments TODO
+  Future<void> addInstruments(List<String>? instruments, DocumentSnapshot document) async
+  {
+    await Musicians.doc(document.id).update({
+      "instruments" : instruments,
     });
   }
 

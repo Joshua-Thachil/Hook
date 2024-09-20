@@ -1,9 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:musicapp/components/InputFields.dart';
 import 'package:musicapp/components/SegmentedProgressBar.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:musicapp/components/Buttons.dart';
 import 'package:musicapp/Style/Palette.dart';
+import 'package:musicapp/repositories/MusiciansCollection.dart';
 import '../components/Globals.dart';
 import 'ProfileCreation4.dart';
 
@@ -36,6 +38,8 @@ class _ProfileCreation3State extends State<ProfileCreation3> with TickerProvider
   late Color currentTextColor;
 
   List<bool> selectedInstruments = []; //track if pressed or not
+
+  List<String>? storedInstruments = []; // Final Instrument list to be sent to Back End
 
   bool _isButton = true; //for the transition animation
   late AnimationController _animationController;
@@ -212,7 +216,16 @@ class _ProfileCreation3State extends State<ProfileCreation3> with TickerProvider
             NextButton(
               text: "Next",
               icon: Icons.arrow_forward,
-              onPressed: (){
+              onPressed: () async {
+
+                for(int i = 0; i < selectedInstruments.length; i++){
+                  if(selectedInstruments[i] == true){
+                    storedInstruments?.add(instrument_list[i]);
+                  }
+                }
+
+                DocumentSnapshot snap = await Musician().getDocument;
+                await Musician().addInstruments(storedInstruments, snap);
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileCreation4()));
               },
             )
