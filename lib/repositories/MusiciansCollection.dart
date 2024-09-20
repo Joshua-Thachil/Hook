@@ -7,8 +7,11 @@ import 'models/UserModel.dart';
 class Musician {
 
   static CollectionReference Musicians = FirebaseFirestore.instance.collection("Musicians"); // Musicians Collection variable
-  final userEmail = AuthService.userData?.email;
   var getDocument = Musicians.doc(AuthService.userID).get();
+
+  // User Info Variables
+  final userEmail = AuthService.userData?.email;
+  static String? name;
 
   // Create A user
   createUser(UserModel user) async {
@@ -16,18 +19,24 @@ class Musician {
   }
 
   // Add Musician Name
-  void addName(String username, DocumentSnapshot document) async
+  Future<void> addName(String username, DocumentSnapshot document) async
   {
-    Musicians.doc(document.id).update({
+    await Musicians.doc(document.id).update({
       "email" : userEmail,
       "username" : username
     });
+
+    name = username;
   }
 
   // Add Description
-  void addDescription(String desc, DocumentSnapshot document) async
+  Future<void> addDescription(String desc, DocumentSnapshot document) async
   {
-    document
+    await Musicians.doc(document.id).update({
+      "email" : userEmail,
+      "username" : name,
+      "description" : desc
+    });
   }
 
 }

@@ -1,7 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:musicapp/components/InputFields.dart';
 import 'package:musicapp/components/SegmentedProgressBar.dart';
 import 'package:musicapp/components/Buttons.dart';
+import 'package:musicapp/repositories/MusiciansCollection.dart';
 import 'ProfileCreation3.dart';
 
 import '../components/Globals.dart';
@@ -61,7 +63,9 @@ class _ProfileCreation2State extends State<ProfileCreation2> {
             NextButton(
               text: "Next",
               icon: Icons.arrow_forward,
-              onPressed: (){
+              onPressed: () async {
+                DocumentSnapshot snap = await Musician().getDocument;
+                await Musician().addDescription(descriptioncontroller.text, snap);
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileCreation3()));
               },
             )
