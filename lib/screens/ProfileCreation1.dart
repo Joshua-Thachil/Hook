@@ -1,6 +1,8 @@
 import 'dart:io';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:musicapp/repositories/MusiciansCollection.dart';
 import 'package:musicapp/components/InputFields.dart';
 import 'package:musicapp/components/SegmentedProgressBar.dart';
 import '../components/Globals.dart';
@@ -23,6 +25,7 @@ class _ProfileCreation1State extends State<ProfileCreation1> {
   File? _image;
   final ImagePicker _picker = ImagePicker();
   final TextEditingController usernamecontroller = TextEditingController();
+
 
   // Function to pick image from gallery or camera
   Future<void> _pickImage(ImageSource source) async {
@@ -155,7 +158,9 @@ class _ProfileCreation1State extends State<ProfileCreation1> {
             NextButton(
               text: "Next",
               icon: Icons.arrow_forward,
-              onPressed: (){
+              onPressed: () async {
+                DocumentSnapshot snap = await Musician().getDocument;
+                Musician().addName(usernamecontroller.text, snap);
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileCreation2()));
               },
             )

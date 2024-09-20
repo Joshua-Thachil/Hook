@@ -7,6 +7,9 @@ class AuthService{
 
   final _authInstance = FirebaseAuth.instance; // storing the firebase auth instance in _auth
 
+  static final userData = FirebaseAuth.instance.currentUser; // Global user data instance
+  static final String? userID = userData?.uid; // Global user ID instance
+
   // Google Sign in
   signInWithGoogle() async {
 

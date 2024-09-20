@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:musicapp/auth/auth_service.dart';
+import 'package:musicapp/repositories/MusiciansCollection.dart';
+import 'package:musicapp/repositories/models/UserModel.dart';
 import 'package:musicapp/screens/HomePage.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:musicapp/screens/ProfileCreation1.dart';
 
 import '../components/Globals.dart';
 
@@ -34,8 +38,10 @@ class _SignUpState extends State<SignUp> {
   Future<void> signUp() async {
     final user = await _authClass.makeUserWithEmailAndPassword(emailController.text, passwordController.text);
     if(user != null) {
+      final userData = UserModel(email: emailController.text);
+      await Musician().createUser(userData);
       print("User Created Successfully");
-      Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileCreation1()));
       dispose();
     }
     else {
@@ -44,10 +50,13 @@ class _SignUpState extends State<SignUp> {
   }
 
   loginWithGoogle () async {
-    final googleUser = _authClass.signInWithGoogle();
+    final googleUser = await _authClass.signInWithGoogle();
 
     if(googleUser != null) {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
+      String? email = AuthService.userData?.email;
+      final userData = UserModel(email: email);
+      await Musician().createUser(userData);
+      Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileCreation1()));
       dispose();
       print("User Logged in Successfully");
     }

@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:musicapp/auth/auth_service.dart';
 import 'package:musicapp/components/InputFields.dart';
 import 'package:musicapp/screens/HomePage.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import '../repositories/models/UserModel.dart';
 import '../components/Globals.dart';
 import 'ProfileCreation1.dart';
 
@@ -37,7 +39,7 @@ class _LoginState extends State<Login> {
   }
 
   loginWithGoogle () async {
-    final googleUser = _auth.signInWithGoogle();
+    final googleUser = await _auth.signInWithGoogle();
 
     if(googleUser != null) {
       Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileCreation1()));
