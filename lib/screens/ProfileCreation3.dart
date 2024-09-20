@@ -225,7 +225,7 @@ class _ProfileCreation3State extends State<ProfileCreation3> with TickerProvider
                 }
 
                 DocumentSnapshot snap = await Musician().getDocument;
-                await Musician().addInstruments(storedInstruments, snap);
+                await Musician().editInstruments(storedInstruments, snap);
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileCreation4()));
               },
             )

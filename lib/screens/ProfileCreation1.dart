@@ -160,7 +160,7 @@ class _ProfileCreation1State extends State<ProfileCreation1> {
               icon: Icons.arrow_forward,
               onPressed: () async {
                 DocumentSnapshot snap = await Musician().getDocument;
-                await Musician().addName(usernamecontroller.text, snap);
+                await Musician().editName(usernamecontroller.text, snap);
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileCreation2()));
               },
             )

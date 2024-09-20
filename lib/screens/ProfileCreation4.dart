@@ -1,8 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:musicapp/Style/Palette.dart';
 import 'package:musicapp/components/SegmentedProgressBar.dart';
 import 'package:musicapp/components/Buttons.dart';
 import 'package:musicapp/components/InputFields.dart';
+import 'package:musicapp/repositories/MusiciansCollection.dart';
 import '../components/Globals.dart';
 import 'ProflieCreation5.dart';
 
@@ -34,13 +36,14 @@ class _ProfileCreation4State extends State<ProfileCreation4> with TickerProvider
   late Animation<Offset> _slideAnimation;
   bool _isButton = true;
   final TextEditingController genrecontroller = TextEditingController();
+  List<String>? storedGenres = [];
 
   //initialize
   void initState() {
     super.initState();
     // Initialize the items with only the text value
     genreList = [
-      ListItem("Pop"),
+      ListItem('Pop'),
       ListItem('HipHop'),
       ListItem('Indie'),
       ListItem('Classical'),
@@ -208,7 +211,17 @@ class _ProfileCreation4State extends State<ProfileCreation4> with TickerProvider
             NextButton(
               text: "Next",
               icon: Icons.arrow_forward,
-              onPressed: (){
+              onPressed: () async {
+
+                for(int i = 0; i < genreList.length; i++){
+                  if(genreList[i].isSelected){
+                    storedGenres?.add(genreList[i].text);
+                  }
+                }
+
+                DocumentSnapshot snap = await Musician().getDocument;
+                Musician().editGenres(storedGenres, snap);
+
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileCreation5()));
               },
             )

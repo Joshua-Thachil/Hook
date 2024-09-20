@@ -19,8 +19,8 @@ class Musician {
     await Musicians.doc(AuthService.userID).set(user.toJson());
   }
 
-  // Add Musician Name
-  Future<void> addName(String username, DocumentSnapshot document) async
+  // Edit Musician Name
+  Future<void> editName(String username, DocumentSnapshot document) async
   {
     await Musicians.doc(document.id).update({
       "username" : username
@@ -29,8 +29,8 @@ class Musician {
     name = username;
   }
 
-  // Add Description
-  Future<void> addDescription(String desc, DocumentSnapshot document) async
+  // Edit Description
+  Future<void> editDescription(String desc, DocumentSnapshot document) async
   {
     await Musicians.doc(document.id).update({
       "description" : desc
@@ -39,11 +39,19 @@ class Musician {
     description = desc;
   }
 
-  // Add Instruments TODO
-  Future<void> addInstruments(List<String>? instruments, DocumentSnapshot document) async
+  // Edit Instruments
+  Future<void> editInstruments(List<String>? instruments, DocumentSnapshot document) async
   {
     await Musicians.doc(document.id).update({
       "instruments" : instruments,
+    });
+  }
+
+  // Add Genres
+  Future<void> editGenres(List<String>? genres, DocumentSnapshot document) async
+  {
+    await Musicians.doc(document.id).update({
+      "genres" : genres,
     });
   }
 
