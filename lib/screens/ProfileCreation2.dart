@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:musicapp/Style/Palette.dart';
 import 'package:musicapp/components/InputFields.dart';
 import 'package:musicapp/components/SegmentedProgressBar.dart';
 import 'package:musicapp/components/Buttons.dart';
@@ -20,11 +21,12 @@ class _ProfileCreation2State extends State<ProfileCreation2> {
   final TextEditingController descriptioncontroller = TextEditingController();
   double height = Globals.screenHeight;
   double width = Globals.screenWidth;
+  final Palette palette = Palette();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff101010),
+      backgroundColor: palette.bg,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         automaticallyImplyLeading: true,
