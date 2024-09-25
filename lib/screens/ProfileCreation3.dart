@@ -66,14 +66,6 @@ class _ProfileCreation3State extends State<ProfileCreation3> with TickerProvider
       parent: _animationController,
       curve: Curves.easeInOut,
     ));
-    // _widthAnimation = Tween<double>(
-    //   begin: 60.0,  // Small width for button
-    //   end: MediaQuery.of(context).size.width,  // Full width for TextField
-    // ).animate(CurvedAnimation(
-    //   parent: _animationController,
-    //   curve: Curves.easeInOut,
-    // ));
-
   }
 
   //dispose
@@ -126,8 +118,8 @@ class _ProfileCreation3State extends State<ProfileCreation3> with TickerProvider
               const SizedBox(height: 30),
               StaggeredGrid.count(
                 crossAxisCount: 3,  // Number of columns
-                crossAxisSpacing: 15.0,
-                mainAxisSpacing: 20.0,
+                crossAxisSpacing: 10.0,
+                mainAxisSpacing: 15.0,
                 children: [
                   for (int index = 0; index < instrument_list.length; index++)
                     StaggeredGridTile.count(

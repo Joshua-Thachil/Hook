@@ -7,16 +7,23 @@ class InputField extends StatelessWidget { // Basic Small Input Text Field
     required this.hint,
     required this.height,
     this.suffix,
+    this.searchFocusNode,
+    this.onSubmitted,
+    this.onChanged,
   });
 
   final TextEditingController InputController;
   final String hint;
   final int height;
   final IconButton? suffix;
+  final FocusNode? searchFocusNode;
+  final Function(String)? onSubmitted;
+  final Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      focusNode: searchFocusNode,
       maxLines: height,
       minLines: height,
       controller: InputController,
@@ -24,7 +31,7 @@ class InputField extends StatelessWidget { // Basic Small Input Text Field
       decoration: InputDecoration(
         hintText: hint,
         hintStyle: TextStyle(
-          color: Colors.white,
+          color: Colors.grey,
           fontSize: 18.3,
           fontWeight: FontWeight.w400,
         ),
@@ -37,6 +44,8 @@ class InputField extends StatelessWidget { // Basic Small Input Text Field
         contentPadding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 18.0),
         suffixIcon: suffix,
       ),
+      onSubmitted: onSubmitted,
+      onChanged: onChanged,
     );
   }
 }
