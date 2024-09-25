@@ -4,6 +4,7 @@ import 'package:musicapp/components/InputFields.dart';
 import 'package:musicapp/components/Buttons.dart';
 import 'package:musicapp/components/SegmentedProgressBar.dart';
 import 'package:musicapp/screens/HomePage.dart';
+import 'package:musicapp/screens/StartUpPage.dart';
 import '../components/Globals.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -257,15 +258,20 @@ class _ProfileCreation5State extends State<ProfileCreation5> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            TextButton(onPressed: () {}, child: Text("Skip for now?",
-            style: TextStyle(
-              color: palette.primary_text, fontSize: 18, fontWeight: FontWeight.bold
-            ),)),
+            TextButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const StartUpPage()));
+            },
+              child: Text("Skip for now?",
+                style: TextStyle(
+                  color: palette.primary_text, fontSize: 18, fontWeight: FontWeight.bold
+                ),
+              ),
+            ),
             NextButton(
               text: "Done",
               icon: Icons.arrow_forward,
               onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const StartUpPage()));
               },
             ),
           ],
