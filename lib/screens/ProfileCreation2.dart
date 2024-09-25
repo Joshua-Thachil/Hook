@@ -36,21 +36,25 @@ class _ProfileCreation2State extends State<ProfileCreation2> {
       body: Padding(
         padding: const EdgeInsets.only(left: 32, right: 32),
         child: Center(
-          child: Column(
+          child: ListView(
             children: [
-              SegmentedProgressBar(totalSteps: 5, currentStep: 2),
-              const SizedBox(height: 80),
-              const Text(
-                "Tell us about yourself",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
+            Column(
+              children: [
+                SegmentedProgressBar(totalSteps: 5, currentStep: 2),
+                const SizedBox(height: 80),
+                const Text(
+                  "Tell us about yourself",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 30),
-              InputField(InputController: descriptioncontroller, hint: 'Enter description', height: 5,),
-            ],
+                const SizedBox(height: 30),
+                InputField(InputController: descriptioncontroller, hint: 'Enter description', height: 5,),
+              ],
+            ),
+            ]
           ),
         ),
       ),
