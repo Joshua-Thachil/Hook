@@ -1,9 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:musicapp/Style/Palette.dart';
 import 'package:musicapp/components/InputFields.dart';
 import 'package:musicapp/components/Buttons.dart';
 import 'package:musicapp/components/SegmentedProgressBar.dart';
-import 'package:musicapp/screens/HomePage.dart';
+import 'package:musicapp/repositories/MusiciansCollection.dart';
 import 'package:musicapp/screens/StartUpPage.dart';
 import '../components/Globals.dart';
 import 'dart:convert';
@@ -270,7 +271,10 @@ class _ProfileCreation5State extends State<ProfileCreation5> {
             NextButton(
               text: "Done",
               icon: Icons.arrow_forward,
-              onPressed: (){
+              onPressed: () async{
+                DocumentSnapshot snap = await Musician().getDocument;
+                await Musician().editMusicBio(selectedSongs, snap);
+
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const StartUpPage()));
               },
             ),
