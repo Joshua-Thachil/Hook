@@ -108,7 +108,7 @@ class _ProfileCreation4State extends State<ProfileCreation4> with TickerProvider
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 32, right: 32),
+        padding: EdgeInsets.only(left: width * 0.075, right: width * 0.075),
         child: Center(
           child: ListView(
             children: [

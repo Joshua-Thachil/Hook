@@ -138,7 +138,7 @@ class _ProfileCreation5State extends State<ProfileCreation5> {
           FocusScope.of(context).unfocus(); // Unfocus when tapping outside
         },
         child: Padding(
-          padding: const EdgeInsets.only(left: 20, right: 20),
+          padding: EdgeInsets.only(left: width * 0.075, right: width * 0.075),
           child: Center(
             child: ListView(
               children: [
@@ -197,7 +197,7 @@ class _ProfileCreation5State extends State<ProfileCreation5> {
                   Visibility(
                     visible: !isSearchFocused, // Hide image when search is focused
                     child: Container(
-                      height: 300,
+                      height: 270,
                       child: const Image(
                         image: AssetImage('assets/images/allen illus1.png'),
                       ),

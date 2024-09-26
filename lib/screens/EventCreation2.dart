@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:musicapp/Style/Palette.dart';
 import 'package:musicapp/components/Buttons.dart';
+import 'package:musicapp/components/Globals.dart';
 import 'package:musicapp/components/SegmentedProgressBar.dart';
 import 'package:musicapp/components/InputFields.dart';
 
@@ -29,6 +30,9 @@ class _EventCreation2State extends State<EventCreation2> with TickerProviderStat
   bool _isButton = true;
   final TextEditingController genrecontroller = TextEditingController();
   List<String>? storedGenres = [];
+
+  double height = Globals.screenHeight;
+  double width = Globals.screenWidth;
 
   //initialize
   void initState() {
@@ -100,7 +104,7 @@ class _EventCreation2State extends State<EventCreation2> with TickerProviderStat
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 32, right: 32),
+        padding: EdgeInsets.only(left: width * 0.075, right: width * 0.075),
         child: Center(
           child: ListView(
             children: [

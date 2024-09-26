@@ -43,7 +43,7 @@ class _ProfileCreation1State extends State<ProfileCreation1> {
     return Scaffold(
       backgroundColor: const Color(0xff101010),
       body: Padding(
-        padding: const EdgeInsets.only(left: 32, right: 32),
+        padding: EdgeInsets.only(left: width * 0.075, right: width * 0.075),
         child: ListView(
           children: [Center(
             child: Column(

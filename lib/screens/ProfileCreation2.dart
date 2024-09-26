@@ -36,7 +36,7 @@ class _ProfileCreation2State extends State<ProfileCreation2> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 32, right: 32),
+        padding: EdgeInsets.only(left: width * 0.075, right: width * 0.075),
         child: Center(
           child: ListView(
             children: [

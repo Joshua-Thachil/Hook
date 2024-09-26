@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:musicapp/Style/Palette.dart';
+import 'package:musicapp/components/Globals.dart';
 import 'package:musicapp/components/SegmentedProgressBar.dart';
 import 'EventCreation2.dart';
 
@@ -13,6 +14,8 @@ class EventCreation1 extends StatefulWidget {
 class _EventCreation1State extends State<EventCreation1> {
 
   final Palette palette = Palette();
+  double height = Globals.screenHeight;
+  double width = Globals.screenWidth;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +30,7 @@ class _EventCreation1State extends State<EventCreation1> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 20, right: 20),
+        padding: EdgeInsets.only(left: width * 0.075, right: width * 0.075),
         child: Center(
           child: Column(
             children: [
@@ -71,6 +74,7 @@ class _EventCreation1State extends State<EventCreation1> {
                   ),
                 ),
               ),
+              const SizedBox(height: 5),
               InkWell(
                 onTap: (){},
                 borderRadius: BorderRadius.circular(15),
@@ -98,6 +102,7 @@ class _EventCreation1State extends State<EventCreation1> {
                   ),
                 ),
               ),
+              const SizedBox(height: 5),
               InkWell(
                 onTap: (){},
                 borderRadius: BorderRadius.circular(15),
@@ -125,6 +130,7 @@ class _EventCreation1State extends State<EventCreation1> {
                   ),
                 ),
               ),
+              const SizedBox(height: 5),
               InkWell(
                 onTap: (){},
                 borderRadius: BorderRadius.circular(15),

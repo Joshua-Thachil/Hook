@@ -80,7 +80,7 @@ class _LoginState extends State<Login> {
       ),
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.only(left: 32, right: 32),
+          padding: EdgeInsets.only(left: width * 0.075, right: width * 0.075),
           child: ListView(
             children: [
               // SizedBox(height: 157,),

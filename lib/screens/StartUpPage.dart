@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:musicapp/components/Globals.dart';
 import 'package:musicapp/Style/Palette.dart';
+import 'HomePage.dart';
 
 class StartUpPage extends StatefulWidget {
   const StartUpPage({super.key});
@@ -23,12 +24,13 @@ class _StartUpPageState extends State<StartUpPage> {
         child: Center(
           child: Column(
             children: [
-              SizedBox(height: 50,),
+              SizedBox(height: 90,),
               Align(
                 child: Text("welcome to",
                   style: TextStyle(
                     fontSize: 48,
                     color: palette.primary_text,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 alignment: Alignment.centerLeft,
@@ -38,6 +40,7 @@ class _StartUpPageState extends State<StartUpPage> {
                   style: TextStyle(
                     fontSize: 48,
                     color: palette.primary_text,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 alignment: Alignment.centerLeft,
@@ -56,80 +59,31 @@ class _StartUpPageState extends State<StartUpPage> {
                 children: [
                   SquareButton(
                     text: "Find Jams",
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(),));
+                    },
                   ),
                   SizedBox(width: 20,),
                   SquareButton(
                     text: "Recording Sessions",
                     onPressed: () {},
                     button_color: Color(0xffFFFFFF),
-                  )
+                  ),
                 ],
               ),
               SizedBox(height: 20,),
               Row(
                 children: [
-                  Container(
-                    child: Padding(
-                      padding: const EdgeInsets.all(18.0),
-                      child: Column(
-                        children: [
-                          Align(
-                            child: Text("Book Jamrooms",
-                              style: TextStyle(
-                                fontSize: 24,
-                                color: Colors.black,
-                              ),
-                            ),
-                            alignment: Alignment.topLeft,
-                          ),
-                          SizedBox(height: 36,),
-                          Align(
-                            child: Icon(Icons.arrow_forward,
-                              size: 36,),
-                            alignment: Alignment.bottomRight,
-                          ),
-                        ],
-                      ),
-                    ),
-                    height: 180,
-                    width: 180,
-                    decoration: BoxDecoration(
-                        color: Color(0xff82BA9F),
-                        borderRadius: BorderRadius.circular(20)
-                    ),
+                  SquareButton(
+                    text: "Find Jams",
+                    onPressed: () {},
+                    button_color: Color(0xff82BA9F),
                   ),
                   SizedBox(width: 20,),
-                  Container(
-                    child: Padding(
-                      padding: const EdgeInsets.all(18.0),
-                      child: Column(
-                        children: [
-                          Align(
-                            child: Text("Get Lessons",
-                              style: TextStyle(
-                                wordSpacing: 12,
-                                fontSize: 24,
-                                color: Colors.black,
-                              ),
-                            ),
-                            alignment: Alignment.topLeft,
-                          ),
-                          SizedBox(height: 36,),
-                          Align(
-                            child: Icon(Icons.arrow_forward,
-                              size: 36,),
-                            alignment: Alignment.bottomRight,
-                          ),
-                        ],
-                      ),
-                    ),
-                    height: 180,
-                    width: 180,
-                    decoration: BoxDecoration(
-                        color: Color(0xffFF4768),
-                        borderRadius: BorderRadius.circular(20)
-                    ),
+                  SquareButton(
+                    text: "Recording Sessions",
+                    onPressed: () {},
+                    button_color: Color(0xffFF4768),
                   ),
                 ],
               ),
