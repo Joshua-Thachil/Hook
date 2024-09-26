@@ -54,67 +54,16 @@ class _StartUpPageState extends State<StartUpPage> {
               SizedBox(height: 44,),
               Row(
                 children: [
-                  Container(
-                    child: Padding(
-                      padding: const EdgeInsets.all(18.0),
-                      child: Column(
-                        children: [
-                          Align(
-                            child: Text("Find jam sessions",
-                              style: TextStyle(
-                                fontSize: 24,
-                                color: Colors.black,
-                              ),
-                            ),
-                            alignment: Alignment.topLeft,
-                          ),
-                          SizedBox(height: 36,),
-                          Align(
-                              child: Icon(Icons.arrow_forward,
-                              size: 36,),
-                            alignment: Alignment.bottomRight,
-                          ),
-                        ],
-                      ),
-                    ),
-                    height: 180,
-                    width: 180,
-                    decoration: BoxDecoration(
-                      color: Color(0xffAD80FF),
-                      borderRadius: BorderRadius.circular(20)
-                    ),
+                  SquareButton(
+                    text: "Find Jams",
+                    onPressed: () {},
                   ),
                   SizedBox(width: 20,),
-                  Container(
-                    child: Padding(
-                      padding: const EdgeInsets.all(18.0),
-                      child: Column(
-                        children: [
-                          Align(
-                            child: Text("Recording Sessions",
-                              style: TextStyle(
-                                fontSize: 24,
-                                color: Colors.black,
-                              ),
-                            ),
-                            alignment: Alignment.topLeft,
-                          ),
-                          SizedBox(height: 36,),
-                          Align(
-                            child: Icon(Icons.arrow_forward,
-                              size: 36,),
-                            alignment: Alignment.bottomRight,
-                          ),
-                        ],
-                      ),
-                    ),
-                    height: 180,
-                    width: 180,
-                    decoration: BoxDecoration(
-                        color: palette.primary_text,
-                        borderRadius: BorderRadius.circular(20)
-                    ),
-                  ),
+                  SquareButton(
+                    text: "Recording Sessions",
+                    onPressed: () {},
+                    button_color: Color(0xffFFFFFF),
+                  )
                 ],
               ),
               SizedBox(height: 20,),
@@ -211,6 +160,62 @@ class _StartUpPageState extends State<StartUpPage> {
         ),
       ),
       backgroundColor: palette.bg,
+    );
+  }
+}
+
+class SquareButton extends StatelessWidget {
+
+  final String text;
+  Color? text_color = Colors.black;
+  Color? button_color;
+  final VoidCallback onPressed;
+
+  SquareButton({
+    super.key,
+    required this.text,
+    this.text_color,
+    this.button_color = const Color(0xffAD80FF),
+    required this.onPressed,
+
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onPressed,
+      child: Container(
+        child: Padding(
+          padding: const EdgeInsets.all(18.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Align(
+                child: Text(text,
+                  style: TextStyle(
+                    wordSpacing: 2,
+                    fontSize: 24,
+                    color: Colors.black,
+                  ),
+                ),
+                alignment: Alignment.topLeft,
+              ),
+              SizedBox(height: 36,),
+              Align(
+                  child: Icon(Icons.arrow_forward,
+                  size: 36,),
+                alignment: Alignment.bottomRight,
+              ),
+            ],
+          ),
+        ),
+        height: 180,
+        width: 180,
+        decoration: BoxDecoration(
+          color: button_color,
+          borderRadius: BorderRadius.circular(20)
+        ),
+      ),
     );
   }
 }

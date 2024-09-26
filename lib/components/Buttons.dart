@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 class PrimaryButton extends StatelessWidget {
   const PrimaryButton({
     super.key,
-    required this.button_text,
+    required this.text,
     required this.onPressed
   });
 
-  final String button_text;
+  final String text;
   final VoidCallback onPressed;
 
   @override
@@ -23,7 +23,7 @@ class PrimaryButton extends StatelessWidget {
         ),
       ),
       child: Text(
-        button_text,
+        text,
         style: TextStyle(
           fontSize: 18.3,
           fontWeight: FontWeight.bold,
@@ -117,5 +117,3 @@ class GridButton extends StatelessWidget {
     );
   }
 }
-
-

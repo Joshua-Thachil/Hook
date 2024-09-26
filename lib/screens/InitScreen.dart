@@ -119,7 +119,7 @@ class _InitScreenState extends State<InitScreen> {
 
               SizedBox(height: 100,),
               
-              PrimaryButton(button_text: "Login", onPressed: LoginButtonPress), // Log in Button
+              PrimaryButton(text: "Login", onPressed: LoginButtonPress), // Log in Button
 
               SizedBox(height: 25,),
 
