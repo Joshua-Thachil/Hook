@@ -2,12 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:musicapp/auth/auth_service.dart';
+import 'package:musicapp/components/Buttons.dart';
 import 'package:musicapp/components/InputFields.dart';
 import 'package:musicapp/screens/HomePage.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../repositories/models/UserModel.dart';
 import '../components/Globals.dart';
 import 'ProfileCreation1.dart';
+import 'package:musicapp/Style/Palette.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -20,6 +22,7 @@ class _LoginState extends State<Login> {
 
   double height = Globals.screenHeight;
   double width = Globals.screenWidth;
+  final Palette palette = Palette();
 
   final _auth = AuthService();
   final loginEmailController = TextEditingController();
@@ -63,9 +66,9 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff101010),
+      backgroundColor: palette.bg,
       appBar: AppBar(
-        toolbarHeight: 120.0,
+        toolbarHeight: height * 0.13,
         backgroundColor: Colors.transparent,
         leading: IconButton(
           onPressed: () {
@@ -119,7 +122,7 @@ class _LoginState extends State<Login> {
                 )
               ),
 
-              const SizedBox(height: 90,),
+              SizedBox(height: height * 0.095,),
 
               ElevatedButton( // Google Login Button
                 onPressed: () async {
@@ -128,7 +131,7 @@ class _LoginState extends State<Login> {
                 style: ElevatedButton.styleFrom(
                   elevation: 0,
                   fixedSize: const Size(366, 70),
-                  backgroundColor: const Color(0xffEDFFF4),
+                  backgroundColor: palette.secondary,
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -139,14 +142,14 @@ class _LoginState extends State<Login> {
                       width: 24,
                       height: 24,
                     ),
-                    const Text.rich(
+                    Text.rich(
                       TextSpan(
                         children: [
                           TextSpan(
                             text: "Continue With ",
                             style: TextStyle(
                               fontSize: 18.3,
-                              color: Color(0xff0F1512),
+                              color: palette.secondary_text,
                               fontWeight: FontWeight.w400,
                             ),
                           ),
@@ -154,7 +157,7 @@ class _LoginState extends State<Login> {
                             text: "Google",
                             style: TextStyle(
                               fontSize: 18.3,
-                              color: Color(0xff000000),
+                              color: palette.secondary_text,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -165,69 +168,48 @@ class _LoginState extends State<Login> {
                 )
               ),
 
-              const SizedBox(height: 20,),
+              SizedBox(height: height * 0.023,),
 
-              const Align(
+              Align(
                 alignment: Alignment.center,
                 child: Text(
                   "or",
                   style: TextStyle(
-                    color: Colors.white,
+                    color: palette.primary_text,
                     fontSize: 22,
                   ),
                 ),
               ),
 
-              const SizedBox(height: 20,),
-
+              SizedBox(height: height * 0.023,),
               InputField(InputController: loginEmailController, hint: "Email", height: 1,), // Email Text Field
-
-              const SizedBox(height: 15,),
-
+              SizedBox(height: height * 0.015,),
               InputField(InputController: loginPasswordController, hint: "Password", height: 1,), // Password Text Field
-
-              const SizedBox(height: 15,),
+              SizedBox(height: height * 0.015,),
 
               Align(
                 alignment: Alignment.centerRight,
                 child: TextButton(
                   onPressed: (){},
-                  child: const Text(
+                  child: Text(
                     "forgot password?",
                     style: TextStyle(
                       fontSize: 16,
-                      color: Colors.white,
+                      color: palette.primary_text,
                       fontWeight: FontWeight.w300,
                     )
                   ),
                 ),
               ),
 
-              const SizedBox(height: 15,),
-
-              ElevatedButton( // Login Button
-                  onPressed: () async{
-                    await login();
-                  },
-                style: ElevatedButton.styleFrom(
-                  elevation: 0,
-                  backgroundColor: const Color(0xff90DAB9),
-                  fixedSize: const Size(366, 61.6),
-                  shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10))
-                  ),
-                ),
-                  child: const Text(
-                      "Log In",
-                    style: TextStyle(
-                      fontSize: 18.3,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  ),
+              SizedBox(height: height * 0.015,),
+              PrimaryButton(
+                onPressed: () async{
+                  await login();
+                },
+                text: "Log In",
               ),
-
-              const SizedBox(height: 15,),
+              SizedBox(height: height * 0.015,),
             ],
           ),
         ),

@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:musicapp/auth/auth_service.dart';
+import 'package:musicapp/components/InputFields.dart';
 import 'package:musicapp/repositories/MusiciansCollection.dart';
 import 'package:musicapp/repositories/models/UserModel.dart';
 import 'package:musicapp/screens/HomePage.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:musicapp/screens/ProfileCreation1.dart';
+import 'package:musicapp/components/Buttons.dart';
+import 'package:musicapp/Style/Palette.dart';
 
 import '../components/Globals.dart';
 
@@ -20,6 +23,8 @@ class _SignUpState extends State<SignUp> {
 
   double height = Globals.screenHeight;
   double width = Globals.screenWidth;
+
+  final Palette palette = Palette();
 
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
@@ -68,9 +73,9 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff101010),
+      backgroundColor: palette.bg,
       appBar: AppBar(
-        toolbarHeight: 120.0,
+        toolbarHeight: height * 0.13,
         backgroundColor: Colors.transparent,
         leading: IconButton(
           onPressed: () {
@@ -88,7 +93,7 @@ class _SignUpState extends State<SignUp> {
           padding: EdgeInsets.only(left: width * 0.075, right: width * 0.075),
           child: ListView(
             children: [
-              const Text.rich(
+              Text.rich(
                   TextSpan(
                       children: [
                         TextSpan(
@@ -96,11 +101,11 @@ class _SignUpState extends State<SignUp> {
                           style: TextStyle(
                             fontSize: 57,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                            color: palette.primary_text,
                             height: 1.25,
                           ),
                         ),
-                        TextSpan(
+                        const TextSpan(
                           text: "Jam,\n",
                           style: TextStyle(
                             fontSize: 57,
@@ -114,7 +119,7 @@ class _SignUpState extends State<SignUp> {
                           style: TextStyle(
                             fontSize: 57,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                            color: palette.primary_text,
                             height: 1.25,
                           ),
                         ),
@@ -122,7 +127,7 @@ class _SignUpState extends State<SignUp> {
                   )
               ),
 
-              const SizedBox(height: 90,),
+              SizedBox(height: height * 0.095,),
 
               ElevatedButton(
                   onPressed: () async {
@@ -131,7 +136,7 @@ class _SignUpState extends State<SignUp> {
                   style: ElevatedButton.styleFrom(
                     elevation: 0,
                     fixedSize: const Size(366, 70),
-                    backgroundColor: const Color(0xffEDFFF4),
+                    backgroundColor: palette.secondary,
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -168,88 +173,33 @@ class _SignUpState extends State<SignUp> {
                   )
               ),
 
-              const SizedBox(height: 20,),
+              SizedBox(height: height * 0.023,),
 
-              const Align(
+              Align(
                 alignment: Alignment.center,
                 child: Text(
                   "or",
                   style: TextStyle(
-                    color: Colors.white,
+                    color: palette.primary_text,
                     fontSize: 22,
                   ),
                 ),
               ),
 
-              const SizedBox(height: 20,),
+              SizedBox(height: height * 0.023,),
+              InputField(InputController: emailController, hint: "Email", height: 1,), // Email text field
+              SizedBox(height: height * 0.015,),
+              InputField(InputController: passwordController, hint: "Password", height: 1,),// Password text field
+              SizedBox(height: height * 0.015,),
 
-              TextField(
-                controller: emailController,
-                style: const TextStyle(color: Colors.white),
-                decoration: const InputDecoration(
-                  hintText: "email",
-                  hintStyle: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18.3,
-                    fontWeight: FontWeight.w400,
-                  ),
-                  filled: true,
-                  fillColor: Color(0xff1E1E1E),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                    borderSide: BorderSide.none,
-                  ),
-                  contentPadding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 18.0),
-                ),
-              ), // Email text field
+              SizedBox(height: height * 0.015,),
 
-              const SizedBox(height: 15,),
-
-              TextField(
-                controller: passwordController,
-                style: const TextStyle(color: Colors.white),
-                decoration: const InputDecoration(
-                  hintText: "password",
-                  hintStyle: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18.3,
-                    fontWeight: FontWeight.w400,
-                  ),
-                  filled: true,
-                  fillColor: Color(0xff1E1E1E),
-                  border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.all(Radius.circular(10))
-                  ),
-                  contentPadding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 18.0),
-                ),
-              ), // Password text field
-              const SizedBox(height: 15,),
-
-              const SizedBox(height: 15,),
-
-              ElevatedButton(
+              PrimaryButton(
                 onPressed: () async{
                   await signUp();
                 },
-                style: ElevatedButton.styleFrom(
-                  elevation: 0,
-                  backgroundColor: const Color(0xff90DAB9),
-                  fixedSize: const Size(366, 61.6),
-                  shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10))
-                  ),
-                ),
-                child: const Text(
-                  "Sign Up",
-                  style: TextStyle(
-                    fontSize: 18.3,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-
+                text: "Sign Up",
+              )
             ],
           ),
         ),

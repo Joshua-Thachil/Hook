@@ -4,6 +4,7 @@ import 'package:musicapp/components/Buttons.dart';
 import 'package:musicapp/components/Globals.dart';
 import 'package:musicapp/screens/Login.dart';
 import 'package:musicapp/screens/SignUp.dart';
+import 'package:musicapp/Style/Palette.dart';
 
 class InitScreen extends StatefulWidget {
   const InitScreen({super.key});
@@ -16,10 +17,10 @@ class _InitScreenState extends State<InitScreen> {
 
   double height = Globals.screenHeight;
   double width = Globals.screenWidth;
+  final Palette palette = Palette();
 
   List<Widget> carouselItems = [
     Container(
-      height: 500,
       decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage('assets/images/allen illus1.png'),
@@ -101,49 +102,34 @@ class _InitScreenState extends State<InitScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff101010),
+      backgroundColor: palette.bg,
       body: Center(
         child: Padding(
           padding: EdgeInsets.only(left: width * 0.075, right: width * 0.075),
           child: ListView(
             children: [
-              SizedBox(height: 50),
+              SizedBox(height: height * 0.055),
               CarouselSlider(
                   items: carouselItems,
                   options: CarouselOptions(
-                    height: 500,
+                    height: height * 0.55,
                     viewportFraction: 1,
                     autoPlay: true,
                   ),
               ),
 
-              SizedBox(height: 100,),
-              
+              SizedBox(height: height * 0.11,),
               PrimaryButton(text: "Login", onPressed: LoginButtonPress), // Log in Button
-
-              SizedBox(height: 25,),
-
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const SignUp()));
-                },
-                style: ElevatedButton.styleFrom(
-                  elevation: 0,
-                  backgroundColor: const Color(0xff1E1E1E),
-                  fixedSize: const Size(366, 61.6),
-                  shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10))
-                  ),
-                ),
-                child: const Text(
-                  "Register",
-                  style: TextStyle(
-                    fontSize: 18.3,
-                    fontWeight: FontWeight.bold,
-                    color: const Color(0xffF4FDF6),
-                  ),
-                ),
-              ), // Register Button
+              SizedBox(height: height * 0.02,),
+              // Register Button
+              PrimaryButton(
+                text: "Register",
+                onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const SignUp()));
+                  },
+                button_color: palette.secondary_bg,
+                text_color: palette.primary_text,
+              ),
             ],
           ),
         ),
