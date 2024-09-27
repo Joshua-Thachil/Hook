@@ -212,7 +212,7 @@ class _EventCreation2State extends State<EventCreation2> with TickerProviderStat
               icon: Icons.arrow_forward,
               onPressed: () async {
                 for(int i = 0; i < genreList.length; i++){
-                  if(genreList[i].isSelected){
+                  if(genreList[i].isSelected && !storedGenresEvent!.contains(genreList[i].text)){
                     storedGenresEvent?.add(genreList[i].text);
                   }
                 }
