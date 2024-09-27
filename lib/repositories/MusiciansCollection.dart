@@ -49,7 +49,7 @@ class Musician {
     });
   }
 
-  // TODO Edit Music_Bio
+  // Edit Music Bio
   Future<void> editMusicBio(List<Map<String, String>> music_bio, DocumentSnapshot document) async {
     await Musicians.doc(document.id).update({
       "music_bio" : music_bio

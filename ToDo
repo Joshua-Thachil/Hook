@@ -7,3 +7,4 @@
 Backend TODO:
 
 - Ensure Multiple documents won't be created if someone tries registering(Signing up) multiple times with google
+- (Duplicate Record Bug) When moving back into the genre page from the music bio page, clicking next on already selected genres will enter duplicate records

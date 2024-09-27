@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:musicapp/components/Globals.dart';
+
 
 class PrimaryButton extends StatelessWidget {
   PrimaryButton({
@@ -12,7 +14,7 @@ class PrimaryButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
   Color? button_color;
-  Color? text_color;
+  Color? text_color;  
 
   @override
   Widget build(BuildContext context) {
@@ -116,6 +118,64 @@ class GridButton extends StatelessWidget {
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20)),
           ),
+        ),
+      ),
+    );
+  }
+}
+class SquareButton extends StatelessWidget {
+
+  double height = Globals.screenHeight;
+  double width = Globals.screenWidth;
+
+  final String text;
+  Color? text_color = Colors.black;
+  Color? button_color;
+  final VoidCallback onPressed;
+
+  SquareButton({
+    super.key,
+    required this.text,
+    this.text_color,
+    this.button_color = const Color(0xffAD80FF),
+    required this.onPressed,
+
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onPressed,
+      child: Container(
+        child: Padding(
+          padding: const EdgeInsets.all(18.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Align(
+                child: Text(text,
+                  style: TextStyle(
+                    wordSpacing: 2,
+                    fontSize: 24,
+                    color: Colors.black,
+                  ),
+                ),
+                alignment: Alignment.topLeft,
+              ),
+              SizedBox(height: 36,),
+              Align(
+                child: Icon(Icons.arrow_forward,
+                  size: 36,),
+                alignment: Alignment.bottomRight,
+              ),
+            ],
+          ),
+        ),
+        height: height * 0.195,
+        width: height * 0.195,
+        decoration: BoxDecoration(
+            color: button_color,
+            borderRadius: BorderRadius.circular(20)
         ),
       ),
     );

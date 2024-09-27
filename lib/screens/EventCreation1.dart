@@ -1,7 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:musicapp/Style/Palette.dart';
 import 'package:musicapp/components/Globals.dart';
 import 'package:musicapp/components/SegmentedProgressBar.dart';
+import 'package:musicapp/repositories/EventsCollection.dart';
 import 'EventCreation2.dart';
 
 class EventCreation1 extends StatefulWidget {
@@ -46,7 +48,8 @@ class _EventCreation1State extends State<EventCreation1> {
               ),
               const SizedBox(height: 30),
               InkWell(
-                onTap: (){
+                onTap: () async{
+                  await Event().createEvent("Find band members");
                   Navigator.push(context, MaterialPageRoute(builder: (context) => EventCreation2(),));
                 },
                 borderRadius: BorderRadius.circular(15),
