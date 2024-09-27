@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class InputField extends StatelessWidget { // Basic Small Input Text Field
   const InputField({
@@ -35,16 +36,16 @@ class InputField extends StatelessWidget { // Basic Small Input Text Field
         hintText: hint,
         hintStyle: TextStyle(
           color: Colors.grey,
-          fontSize: 18.3,
+          fontSize: 18.sp,
           fontWeight: FontWeight.w400,
         ),
         filled: true,
         fillColor: Color(0xff1E1E1E),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
+          borderRadius: BorderRadius.all(Radius.circular(15.r)),
           borderSide: BorderSide.none,
         ),
-        contentPadding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 18.0),
+        contentPadding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 18.h),
         suffixIcon: suffix,
       ),
       onSubmitted: onSubmitted,

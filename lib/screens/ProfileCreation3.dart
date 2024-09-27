@@ -8,6 +8,7 @@ import 'package:musicapp/Style/Palette.dart';
 import 'package:musicapp/repositories/MusiciansCollection.dart';
 import '../components/Globals.dart';
 import 'ProfileCreation4.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProfileCreation3 extends StatefulWidget {
   const ProfileCreation3({super.key});
@@ -89,139 +90,141 @@ class _ProfileCreation3State extends State<ProfileCreation3> with TickerProvider
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: palette.bg,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        automaticallyImplyLeading: true,
-        iconTheme: const IconThemeData(
-          color: Colors.white,
-          size: 35,
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: palette.bg,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          automaticallyImplyLeading: true,
+          iconTheme: const IconThemeData(
+            color: Colors.white,
+            size: 35,
+          ),
         ),
-      ),
-      body: Padding(
-        padding: EdgeInsets.only(left: width * 0.075, right: width * 0.075),
-        child: Center(
-          child: ListView(
-            children: [
-              SegmentedProgressBar(totalSteps: 5, currentStep: 3),
-              const SizedBox(height: 80),
-              const Text(
-                "Pick the instruments you play",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
+        body: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 32.w),
+          child: Center(
+            child: ListView(
+              children: [
+                SegmentedProgressBar(totalSteps: 5, currentStep: 3),
+                SizedBox(height: 80.h),
+                Text(
+                  "Pick the instruments you play",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 32.sp,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 30),
-              StaggeredGrid.count(
-                crossAxisCount: 3,  // Number of columns
-                crossAxisSpacing: 10.0,
-                mainAxisSpacing: 15.0,
-                children: [
-                  for (int index = 0; index < instrument_list.length; index++)
-                    StaggeredGridTile.count(
-                      crossAxisCellCount: instrument_list[index].length > 6 ? 2 : 1,  // Span two columns for 'Digeridoo'
-                      mainAxisCellCount: 0.6, // Height of the tile
-                      child: GridButton(
-                        backgroundColor: selectedInstruments[index]
-                            ? palette.accent  // Selected state
-                            : palette.secondary,  // Unselected state
-                        text: instrument_list[index],
-                        textColor: selectedInstruments[index]
-                            ? palette.primary_text  // Selected state
-                            : palette.secondary_text,  // Unselected state
+                SizedBox(height: 30.h),
+                StaggeredGrid.count(
+                  crossAxisCount: 3,  // Number of columns
+                  crossAxisSpacing: 10.0,
+                  mainAxisSpacing: 15.0,
+                  children: [
+                    for (int index = 0; index < instrument_list.length; index++)
+                      StaggeredGridTile.count(
+                        crossAxisCellCount: instrument_list[index].length > 6 ? 2 : 1,  // Span two columns for 'Digeridoo'
+                        mainAxisCellCount: 0.6, // Height of the tile
+                        child: GridButton(
+                          backgroundColor: selectedInstruments[index]
+                              ? palette.accent  // Selected state
+                              : palette.secondary,  // Unselected state
+                          text: instrument_list[index],
+                          textColor: selectedInstruments[index]
+                              ? palette.primary_text  // Selected state
+                              : palette.secondary_text,  // Unselected state
+                          onPressed: () {
+                            setState(() {
+                              // Toggle the selected state of the button
+                              selectedInstruments[index] = !selectedInstruments[index];
+                            });
+                          },
+                        ),
+                      ),
+                  ],
+                ),
+                SizedBox(height: 50.h,),
+                AnimatedSwitcher(
+                  duration: const Duration(milliseconds: 300),
+                  child: _isButton
+                      ? Align(
+                    alignment: Alignment.centerLeft,
+                    child: SizedBox(
+                      height: 60.h,
+                      width: 90.h,
+                      child: FloatingActionButton(
                         onPressed: () {
                           setState(() {
-                            // Toggle the selected state of the button
-                            selectedInstruments[index] = !selectedInstruments[index];
+                            _isButton = false;
+                            _animationController.forward();
                           });
                         },
-                      ),
-                    ),
-                ],
-              ),
-              SizedBox(height: 50,),
-              AnimatedSwitcher(
-                duration: const Duration(milliseconds: 300),
-                child: _isButton
-                    ? Align(
-                  alignment: Alignment.centerLeft,
-                  child: SizedBox(
-                    height: 60,
-                    width: 90,
-                    child: FloatingActionButton(
-                      onPressed: () {
-                        setState(() {
-                          _isButton = false;
-                          _animationController.forward();
-                        });
-                      },
-                      child: Icon(
-                        Icons.add,
-                        color: palette.primary_text,
-                        size: 50,
-                      ),
-                      backgroundColor: palette.accent,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                    ),
-                  ),
-                )
-                    : SlideTransition(
-                  position: _slideAnimation,
-                  child: InputField(
-                    hint: "Add your instrument",
-                    InputController: instrumentcontroller,
-                    height: 1,
-                    suffix: IconButton(
-                      onPressed: _addInstrument,
-                      icon: Icon(Icons.add, size: 50, color: palette.primary_text,),
-                      color: palette.accent,
-                      alignment: Alignment.centerRight,
-                      style: ButtonStyle(
-                        backgroundColor: WidgetStatePropertyAll(palette.accent),
-                        shape: WidgetStatePropertyAll(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          )
-                        )
+                        child: Icon(
+                          Icons.add,
+                          color: palette.primary_text,
+                          size: 50,
+                        ),
+                        backgroundColor: palette.accent,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.r),
+                        ),
                       ),
                     ),
                   )
+                      : SlideTransition(
+                    position: _slideAnimation,
+                    child: InputField(
+                      hint: "Add your instrument",
+                      InputController: instrumentcontroller,
+                      height: 1,
+                      suffix: IconButton(
+                        onPressed: _addInstrument,
+                        icon: Icon(Icons.add, size: 50, color: palette.primary_text,),
+                        color: palette.accent,
+                        alignment: Alignment.centerRight,
+                        style: ButtonStyle(
+                          backgroundColor: WidgetStatePropertyAll(palette.accent),
+                          shape: WidgetStatePropertyAll(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20.r),
+                            )
+                          )
+                        ),
+                      ),
+                    )
+                  ),
                 ),
-              ),
-              SizedBox(height: 50,),
-            ],
+                SizedBox(height: 50.h,),
+              ],
+            ),
           ),
         ),
-      ),
-      bottomNavigationBar: BottomAppBar(
-        padding: const EdgeInsets.only(bottom: 20, right: 30),
-        color: Colors.transparent,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            NextButton(
-              text: "Next",
-              icon: Icons.arrow_forward,
-              onPressed: () async {
+        bottomNavigationBar: BottomAppBar(
+          padding: EdgeInsets.only(bottom: 20.h, right: 30.w),
+          color: Colors.transparent,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              NextButton(
+                text: "Next",
+                icon: Icons.arrow_forward,
+                onPressed: () async {
 
-                for(int i = 0; i < selectedInstruments.length; i++){
-                  if(selectedInstruments[i] == true){
-                    storedInstruments?.add(instrument_list[i]);
+                  for(int i = 0; i < selectedInstruments.length; i++){
+                    if(selectedInstruments[i] == true){
+                      storedInstruments?.add(instrument_list[i]);
+                    }
                   }
-                }
 
-                DocumentSnapshot snap = await Musician().getDocument;
-                await Musician().editInstruments(storedInstruments, snap);
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileCreation4()));
-              },
-            )
-          ],
+                  DocumentSnapshot snap = await Musician().getDocument;
+                  await Musician().editInstruments(storedInstruments, snap);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileCreation4()));
+                },
+              )
+            ],
+          ),
         ),
       ),
     );

@@ -4,7 +4,7 @@ import 'package:musicapp/auth/auth_service.dart';
 class Event {
 
   static CollectionReference Events = FirebaseFirestore.instance.collection("Events");
-  var getDocument = Events.doc()
+  // var getDocument = Events.doc()
 
   // Create Event on Choosing Event Type
   createEvent(String type) async {

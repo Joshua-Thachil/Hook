@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:musicapp/components/Globals.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 class PrimaryButton extends StatelessWidget {
@@ -110,13 +111,13 @@ class GridButton extends StatelessWidget {
         onPressed: onPressed,
         child: Text(
           text,
-          style: TextStyle(color: textColor, fontSize: 20),
+          style: TextStyle(color: textColor, fontSize: 21.sp),
           textAlign: TextAlign.center,
         ),
         style: ElevatedButton.styleFrom(
           backgroundColor: backgroundColor,
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(20)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(20.r)),
           ),
         ),
       ),
