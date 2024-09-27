@@ -189,7 +189,7 @@ class _SignUpState extends State<SignUp> {
               SizedBox(height: height * 0.023,),
               InputField(InputController: emailController, hint: "Email", height: 1,), // Email text field
               SizedBox(height: height * 0.015,),
-              InputField(InputController: passwordController, hint: "Password", height: 1,),// Password text field
+              InputField(InputController: passwordController, hint: "Password", height: 1, obscureText: true,),// Password text field
               SizedBox(height: height * 0.015,),
 
               SizedBox(height: height * 0.015,),

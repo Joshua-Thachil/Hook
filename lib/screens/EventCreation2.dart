@@ -4,6 +4,7 @@ import 'package:musicapp/components/Buttons.dart';
 import 'package:musicapp/components/Globals.dart';
 import 'package:musicapp/components/SegmentedProgressBar.dart';
 import 'package:musicapp/components/InputFields.dart';
+import 'EventCreation3.dart';
 
 class ListItem {
   final String text;
@@ -29,7 +30,7 @@ class _EventCreation2State extends State<EventCreation2> with TickerProviderStat
   late Animation<Offset> _slideAnimation;
   bool _isButton = true;
   final TextEditingController genrecontroller = TextEditingController();
-  List<String>? storedGenres = [];
+  List<String>? storedGenresEvent = [];
 
   double height = Globals.screenHeight;
   double width = Globals.screenWidth;
@@ -108,7 +109,7 @@ class _EventCreation2State extends State<EventCreation2> with TickerProviderStat
         child: Center(
           child: ListView(
             children: [
-              SegmentedProgressBar(totalSteps: 5, currentStep: 4),
+              SegmentedProgressBar(totalSteps: 5, currentStep: 2),
               const SizedBox(height: 80),
               const Text(
                 "Pick your vibe",
@@ -207,7 +208,14 @@ class _EventCreation2State extends State<EventCreation2> with TickerProviderStat
             NextButton(
               text: "Next",
               icon: Icons.arrow_forward,
-              onPressed: () {},
+              onPressed: () {
+                for(int i = 0; i < genreList.length; i++){
+                  if(genreList[i].isSelected){
+                    storedGenresEvent?.add(genreList[i].text);
+                  }
+                }
+                Navigator.push(context, MaterialPageRoute(builder: (context) => EventCreation3(),));
+              },
             )
           ],
         ),

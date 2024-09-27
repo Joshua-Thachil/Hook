@@ -10,6 +10,7 @@ class InputField extends StatelessWidget { // Basic Small Input Text Field
     this.searchFocusNode,
     this.onSubmitted,
     this.onChanged,
+    this.obscureText = false,
   });
 
   final TextEditingController InputController;
@@ -19,10 +20,12 @@ class InputField extends StatelessWidget { // Basic Small Input Text Field
   final FocusNode? searchFocusNode;
   final Function(String)? onSubmitted;
   final Function(String)? onChanged;
+  final bool obscureText;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      obscureText: obscureText,
       focusNode: searchFocusNode,
       maxLines: height,
       minLines: height,

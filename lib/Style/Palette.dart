@@ -9,4 +9,5 @@ class Palette{
   var accent = Color(0xff1D6B50);
   var primary_text = Color(0xffFFFFFF);
   var secondary_text = Color(0xff000000);
+  var hint_text = Colors.grey;
 }

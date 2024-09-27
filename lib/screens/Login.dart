@@ -184,7 +184,7 @@ class _LoginState extends State<Login> {
               SizedBox(height: height * 0.023,),
               InputField(InputController: loginEmailController, hint: "Email", height: 1,), // Email Text Field
               SizedBox(height: height * 0.015,),
-              InputField(InputController: loginPasswordController, hint: "Password", height: 1,), // Password Text Field
+              InputField(InputController: loginPasswordController, hint: "Password", height: 1, obscureText: true,), // Password Text Field
               SizedBox(height: height * 0.015,),
 
               Align(

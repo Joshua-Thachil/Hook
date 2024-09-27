@@ -34,7 +34,7 @@ class _EventCreation1State extends State<EventCreation1> {
         child: Center(
           child: Column(
             children: [
-              SegmentedProgressBar(totalSteps: 5, currentStep: 2),
+              SegmentedProgressBar(totalSteps: 5, currentStep: 1),
               const SizedBox(height: 80),
               const Text(
                 "Pick one of these",
