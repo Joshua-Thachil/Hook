@@ -30,4 +30,12 @@ class Event {
     });
   }
 
+  Future<void> editInstrument(Map<String, int>? instruments, DocumentSnapshot document) async
+  {
+    await Events.doc(document.id).update({
+      "instruments" : instruments
+    });
+  }
+
+
 }
