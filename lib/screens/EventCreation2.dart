@@ -1,9 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:musicapp/Style/Palette.dart';
 import 'package:musicapp/components/Buttons.dart';
 import 'package:musicapp/components/Globals.dart';
 import 'package:musicapp/components/SegmentedProgressBar.dart';
 import 'package:musicapp/components/InputFields.dart';
+import 'package:musicapp/repositories/EventsCollection.dart';
 import 'EventCreation3.dart';
 
 class ListItem {
@@ -208,12 +210,15 @@ class _EventCreation2State extends State<EventCreation2> with TickerProviderStat
             NextButton(
               text: "Next",
               icon: Icons.arrow_forward,
-              onPressed: () {
+              onPressed: () async {
                 for(int i = 0; i < genreList.length; i++){
                   if(genreList[i].isSelected){
                     storedGenresEvent?.add(genreList[i].text);
                   }
                 }
+
+                DocumentSnapshot<Object?> snap = await Event().getDocument;
+                Event().editGenres(storedGenresEvent, snap);
                 Navigator.push(context, MaterialPageRoute(builder: (context) => EventCreation3(),));
               },
             )
