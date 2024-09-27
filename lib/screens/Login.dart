@@ -6,6 +6,7 @@ import 'package:musicapp/components/Buttons.dart';
 import 'package:musicapp/components/InputFields.dart';
 import 'package:musicapp/screens/HomePage.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:musicapp/screens/StartUpPage.dart';
 import '../repositories/models/UserModel.dart';
 import '../components/Globals.dart';
 import 'ProfileCreation1.dart';
@@ -32,7 +33,7 @@ class _LoginState extends State<Login> {
     final user = await _auth.signWithEmailAndPassword(loginEmailController.text, loginPasswordController.text);
 
     if(user != null) {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileCreation1()));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => const StartUpPage()));
       dispose();
       print("User Logged in Successfully");
     }
@@ -45,7 +46,7 @@ class _LoginState extends State<Login> {
     final googleUser = await _auth.signInWithGoogle();
 
     if(googleUser != null) {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileCreation1()));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => const StartUpPage()));
       dispose();
       print("User Logged in Successfully");
     }
