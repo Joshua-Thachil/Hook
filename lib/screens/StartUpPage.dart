@@ -23,7 +23,7 @@ class _StartUpPageState extends State<StartUpPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.only(left: width * 0.075, right: width * 0.075),
+        padding: EdgeInsets.only(left: 26, right: 26),
         child: Center(
           child: Column(
             children: [

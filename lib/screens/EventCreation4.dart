@@ -57,7 +57,9 @@ class _EventCreation4State extends State<EventCreation4> {
                     crossAxisCellCount: 1,
                     mainAxisCellCount: 0.5,
                     child: PrimaryButton(
-                      onPressed: (){},
+                      onPressed: (){
+
+                      },
                       text: 'set date',
                       text_color: palette.hint_text,
                       button_color: palette.secondary_bg,
