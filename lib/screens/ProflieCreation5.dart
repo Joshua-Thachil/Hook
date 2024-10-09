@@ -5,6 +5,7 @@ import 'package:musicapp/components/InputFields.dart';
 import 'package:musicapp/components/Buttons.dart';
 import 'package:musicapp/components/SegmentedProgressBar.dart';
 import 'package:musicapp/repositories/MusiciansCollection.dart';
+import 'package:musicapp/screens/ProfileCreation6.dart';
 import 'package:musicapp/screens/StartUpPage.dart';
 import '../components/Globals.dart';
 import 'dart:convert';
@@ -138,7 +139,7 @@ class _ProfileCreation5State extends State<ProfileCreation5> {
           FocusScope.of(context).unfocus(); // Unfocus when tapping outside
         },
         child: Padding(
-          padding: EdgeInsets.only(left: width * 0.075, right: width * 0.075),
+          padding: EdgeInsets.symmetric(horizontal: 26),
           child: Center(
             child: ListView(
               children: [
@@ -168,7 +169,7 @@ class _ProfileCreation5State extends State<ProfileCreation5> {
                   searchFocusNode: searchFocusNode, // Attach the focus node
                   onChanged: _onSearchChanged,
                 ),
-                SizedBox(height: 30,),
+                SizedBox(height: 50,),
                 selectedSongs.isEmpty
                     ? Container()
                     : Column(
@@ -207,12 +208,15 @@ class _ProfileCreation5State extends State<ProfileCreation5> {
                   Visibility(
                     visible: !isSearchFocused, // Hide body text when search is focused
                     child: Center(
-                      child: Text(
-                        textAlign: TextAlign.center,
-                        "Create a small playlist to showcase your music taste",
-                        style: TextStyle(
-                          color: palette.primary_text,
-                          fontSize: 18,
+                      child: SizedBox(
+                        width: 240,
+                        child: Text(
+                          textAlign: TextAlign.center,
+                          "Create a small playlist to showcase your music taste",
+                          style: TextStyle(
+                            color: palette.primary_text,
+                            fontSize: 18,
+                          ),
                         ),
                       ),
                     ),
@@ -275,7 +279,7 @@ class _ProfileCreation5State extends State<ProfileCreation5> {
                 DocumentSnapshot snap = await Musician().getDocument;
                 await Musician().editMusicBio(selectedSongs, snap);
 
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const StartUpPage()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileCreation6(selectedSongs: selectedSongs)));
               },
             ),
           ],

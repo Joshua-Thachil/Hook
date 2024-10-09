@@ -23,11 +23,11 @@ class _StartUpPageState extends State<StartUpPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.only(left: 26, right: 26),
+        padding: const EdgeInsets.only(left: 26, right: 26),
         child: Center(
           child: Column(
             children: [
-              SizedBox(height: 90,),
+              const SizedBox(height: 90,),
               Align(
                 child: Text("welcome to",
                   style: TextStyle(
@@ -42,7 +42,7 @@ class _StartUpPageState extends State<StartUpPage> {
                 child: Text("Hook",
                   style: TextStyle(
                     fontSize: 48,
-                    color: palette.primary_text,
+                    color: palette.primary,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -57,40 +57,40 @@ class _StartUpPageState extends State<StartUpPage> {
                 ),
                 alignment: Alignment.centerLeft,
               ),
-              SizedBox(height: 44,),
+              const SizedBox(height: 44,),
               Row(
                 children: [
                   SquareButton(
                     text: "Find Jams",
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(),));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage(),));
                     },
                   ),
-                  SizedBox(width: 20,),
+                  const SizedBox(width: 20,),
                   SquareButton(
                     text: "Recording Sessions",
                     onPressed: () {},
-                    button_color: Color(0xffFFFFFF),
+                    button_color: const Color(0xffFFFFFF),
                   ),
                 ],
               ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
               Row(
                 children: [
                   SquareButton(
                     text: "Find Jams",
                     onPressed: () {},
-                    button_color: Color(0xff82BA9F),
+                    button_color: const Color(0xff82BA9F),
                   ),
-                  SizedBox(width: 20,),
+                  const SizedBox(width: 20,),
                   SquareButton(
                     text: "Recording Sessions",
                     onPressed: () {},
-                    button_color: Color(0xffFF4768),
+                    button_color: const Color(0xffFF4768),
                   ),
                 ],
               ),
-              SizedBox(height: 50,),
+              const SizedBox(height: 50,),
               Container(
                 child: Center(
                   child: Padding(
@@ -108,7 +108,7 @@ class _StartUpPageState extends State<StartUpPage> {
                 height: 124,
                 width: 380,
                 decoration: BoxDecoration(
-                    color: Color(0xff3E6374),
+                    color: const Color(0xff3E6374),
                     borderRadius: BorderRadius.circular(20)
                 ),
               ),

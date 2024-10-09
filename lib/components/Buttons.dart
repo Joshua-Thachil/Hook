@@ -159,6 +159,7 @@ class SquareButton extends StatelessWidget {
                     wordSpacing: 2,
                     fontSize: 24,
                     color: Colors.black,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
                 alignment: Alignment.topLeft,
