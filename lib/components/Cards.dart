@@ -3,23 +3,6 @@ import 'package:musicapp/Style/Palette.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
 
-class Event {
-  final String title;
-  final String username;
-  final List<String> genres;
-  final String dateTime;
-  final String location;
-  final List<IconData> icons;
-
-  Event({
-    required this.title,
-    required this.username,
-    required this.genres,
-    required this.dateTime,
-    required this.location,
-    required this.icons,
-  });
-}
 
 class EventCard extends StatefulWidget {
   final File? image;
@@ -162,28 +145,41 @@ class _EventCardState extends State<EventCard> {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                SizedBox(width: 10),
-                ElevatedButton(
-                  onPressed: widget.onLocationPressed, // Handle location button press
-                  style: ElevatedButton.styleFrom(
-                    fixedSize: Size(140, 10),
-                    backgroundColor: Colors.transparent,
-                    shadowColor: Colors.transparent,
-                    side: BorderSide(color: Colors.white, width: 2),
-                    shape: RoundedRectangleBorder(
+                GestureDetector(
+                  onTap: (){},
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 2.0),
+                    decoration: BoxDecoration(
+                      color: WidgetStateColor.transparent,
                       borderRadius: BorderRadius.circular(20),
+                      border: Border.all(
+                        color: Colors.white,
+                        width: 2.0,
+                      )
                     ),
-                  ),
-                  child: Text(
-                    widget.location,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Icon(
+                          Icons.location_pin,
+                          size: 20,
+                          color: Colors.white,
+                        ),
+                        SizedBox(width: 10),
+                        Text(
+                          widget.location,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
-                SizedBox(width: 30),
+                Container(),
+                Container(),
                 AnimatedSwitcher(
                   duration: Duration(milliseconds: 300),
                   transitionBuilder: (Widget child, Animation<double> animation) {
@@ -203,3 +199,50 @@ class _EventCardState extends State<EventCard> {
     );
   }
 }
+class NotificationCard extends StatelessWidget {
+  final String notificationText;
+  final String timeSent;
+  final Palette palette = Palette();
+
+  NotificationCard({
+    required this.notificationText,
+    required this.timeSent,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(bottom: 15),
+      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+      decoration: BoxDecoration(
+        color: palette.secondary_bg,  // Use the background color provided
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            notificationText,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+            ),
+          ),
+          SizedBox(height: 20),
+          Align(
+            alignment: Alignment.bottomRight,
+            child: Text(
+              timeSent,
+              style: TextStyle(
+                color: Colors.grey,
+                fontSize: 12,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+

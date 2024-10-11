@@ -155,6 +155,8 @@ class SquareButton extends StatelessWidget {
             children: [
               Align(
                 child: Text(text,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     wordSpacing: 2,
                     fontSize: 24,
@@ -164,7 +166,6 @@ class SquareButton extends StatelessWidget {
                 ),
                 alignment: Alignment.topLeft,
               ),
-              SizedBox(height: 36,),
               Align(
                 child: Icon(Icons.arrow_forward,
                   size: 36,),
@@ -173,8 +174,6 @@ class SquareButton extends StatelessWidget {
             ],
           ),
         ),
-        height: 180,
-        width: 180,
         decoration: BoxDecoration(
             color: button_color,
             borderRadius: BorderRadius.circular(20)

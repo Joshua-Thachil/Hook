@@ -7,6 +7,7 @@ import 'package:musicapp/main.dart';
 import 'package:musicapp/screens/Login.dart';
 import 'package:musicapp/components/Globals.dart';
 import 'package:musicapp/Style/Palette.dart';
+import 'package:musicapp/screens/NotificationPage.dart';
 import 'EventCreation1.dart';
 
 //event class
@@ -49,7 +50,7 @@ class _HomePageState extends State<HomePage> {
       username: 'kunjumaya',
       genres: ['Carnatic', 'Rock', 'Pop'],
       dateTime: '5th Sep, 6 pm',
-      location: 'Jayanagar',
+      location: '1.5 kms',
       icons: [Icons.favorite, Icons.star, Icons.thumb_up, Icons.cake],
     ),
     Event(
@@ -64,9 +65,9 @@ class _HomePageState extends State<HomePage> {
       title: 'Rock Concert',
       username: 'rockstar',
       genres: ['Rock', 'Metal'],
-      dateTime: '15th Sep, 8 pm',
+      dateTime: '15th Sep, 12.30 pm',
       location: 'Indiranagar',
-      icons: [Icons.favorite, Icons.event],
+      icons: [Icons.favorite],
     ),
   ];
 
@@ -83,13 +84,28 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: 50),
-                Text(
-                  "Hook",
-                  style: TextStyle(
-                    fontSize: 45,
-                    color: palette.primary,
-                    fontWeight: FontWeight.bold,
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Hook",
+                      style: TextStyle(
+                        fontSize: 45,
+                        color: palette.primary,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => NotificationPage(),));
+                      },
+                      icon: Icon(
+                        Icons.notifications,
+                        color: Colors.white,
+                        size: 40,
+                      ),
+                    ),
+                  ],
                 ),
                 Text(
                   "Beware of spiders and zombies",
@@ -113,11 +129,13 @@ class _HomePageState extends State<HomePage> {
                       fontSize: 15,
                     ),
                     dividerColor: Colors.transparent,
-                    labelColor: palette.primary,
+                    labelColor: Colors.black,
                     unselectedLabelColor: Colors.grey,
                     indicator: BoxDecoration(
-                      color: Colors.transparent,
+                      color: palette.primary,  // Background color of the pill
+                      borderRadius: BorderRadius.circular(25.0), // Rounded corners for pill effect
                     ),
+                    indicatorSize: TabBarIndicatorSize.tab,
                     tabs: [
                       Tab(text: 'For you'),
                       Tab(text: 'All'),
@@ -175,6 +193,8 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 SizedBox(height: 20),
+
+                //This section is temporary
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

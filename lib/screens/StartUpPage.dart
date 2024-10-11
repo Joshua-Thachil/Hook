@@ -25,9 +25,9 @@ class _StartUpPageState extends State<StartUpPage> {
       body: Padding(
         padding: const EdgeInsets.only(left: 26, right: 26),
         child: Center(
-          child: Column(
+          child: ListView(
             children: [
-              const SizedBox(height: 90,),
+              const SizedBox(height: 50,),
               Align(
                 child: Text("welcome to",
                   style: TextStyle(
@@ -57,32 +57,32 @@ class _StartUpPageState extends State<StartUpPage> {
                 ),
                 alignment: Alignment.centerLeft,
               ),
-              const SizedBox(height: 44,),
-              Row(
+              const SizedBox(height: 50,),
+              GridView.count(
+                crossAxisCount: 2,  // Number of columns
+                crossAxisSpacing: 15,  // Spacing between columns
+                mainAxisSpacing: 15,   // Spacing between rows
+                shrinkWrap: true,  // Only take the space needed for the items
                 children: [
                   SquareButton(
                     text: "Find Jams",
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage(),));
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const HomePage()),
+                      );
                     },
                   ),
-                  const SizedBox(width: 20,),
                   SquareButton(
-                    text: "Recording Sessions",
+                    text: "Recording sesh with my friends and family and everyone",
                     onPressed: () {},
                     button_color: const Color(0xffFFFFFF),
                   ),
-                ],
-              ),
-              const SizedBox(height: 20,),
-              Row(
-                children: [
                   SquareButton(
                     text: "Find Jams",
                     onPressed: () {},
                     button_color: const Color(0xff82BA9F),
                   ),
-                  const SizedBox(width: 20,),
                   SquareButton(
                     text: "Recording Sessions",
                     onPressed: () {},
@@ -90,6 +90,7 @@ class _StartUpPageState extends State<StartUpPage> {
                   ),
                 ],
               ),
+
               const SizedBox(height: 50,),
               Container(
                 child: Center(
@@ -105,13 +106,12 @@ class _StartUpPageState extends State<StartUpPage> {
                     )
                   ),
                 ),
-                height: 124,
-                width: 380,
                 decoration: BoxDecoration(
                     color: const Color(0xff3E6374),
                     borderRadius: BorderRadius.circular(20)
                 ),
               ),
+              const SizedBox(height: 20,),
             ],
           ),
         ),
