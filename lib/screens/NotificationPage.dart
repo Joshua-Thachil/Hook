@@ -21,7 +21,6 @@ class NotificationPage extends StatefulWidget {
 
 class _NotificationPageState extends State<NotificationPage> {
 
-  final Palette palette = Palette();
   List<NotificationModel> notifications = [
     NotificationModel(
       notificationText: 'Your jam room booking for 3:00 PM today has been confirmed.',
@@ -60,7 +59,7 @@ class _NotificationPageState extends State<NotificationPage> {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        backgroundColor: palette.bg,
+        backgroundColor: Palette.bg,
           appBar: PreferredSize(
             preferredSize: Size.fromHeight(66),
             child: Padding(
@@ -94,7 +93,7 @@ class _NotificationPageState extends State<NotificationPage> {
                 //tab bar
                 Container(
                   decoration: BoxDecoration(
-                    color: palette.secondary_bg,
+                    color: Palette.secondary_bg,
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: TabBar(
@@ -107,7 +106,7 @@ class _NotificationPageState extends State<NotificationPage> {
                     labelColor: Colors.black,
                     unselectedLabelColor: Colors.grey,
                     indicator: BoxDecoration(
-                      color: palette.primary,  // Background color of the pill
+                      color: Palette.primary,  // Background color of the pill
                       borderRadius: BorderRadius.circular(25.0), // Rounded corners for pill effect
                     ),
                     indicatorSize: TabBarIndicatorSize.tab,
@@ -131,7 +130,7 @@ class _NotificationPageState extends State<NotificationPage> {
                               data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
                               child: ExpansionTile(
                                 collapsedIconColor: Colors.white,   // Icon color when collapsed
-                                iconColor: palette.primary,            // Icon color when expanded
+                                iconColor: Palette.primary,            // Icon color when expanded
                                 title: Text(
                                   'Unread',
                                   style: TextStyle(
@@ -170,7 +169,7 @@ class _NotificationPageState extends State<NotificationPage> {
                               data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
                               child: ExpansionTile(
                                 collapsedIconColor: Colors.white,   // Icon color when collapsed
-                                iconColor: palette.primary,
+                                iconColor: Palette.primary,
                                 title: Text(
                                   'Upcoming Events',
                                   style: TextStyle(

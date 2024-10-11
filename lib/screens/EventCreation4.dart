@@ -14,7 +14,6 @@ class EventCreation4 extends StatefulWidget {
 }
 
 class _EventCreation4State extends State<EventCreation4> {
-  final Palette palette = Palette();
 
   double height = Globals.screenHeight;
   double width = Globals.screenWidth;
@@ -22,7 +21,7 @@ class _EventCreation4State extends State<EventCreation4> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: palette.bg,
+      backgroundColor: Palette.bg,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         automaticallyImplyLeading: true,
@@ -61,8 +60,8 @@ class _EventCreation4State extends State<EventCreation4> {
 
                       },
                       text: 'set date',
-                      text_color: palette.hint_text,
-                      button_color: palette.secondary_bg,
+                      text_color: Palette.hint_text,
+                      button_color: Palette.secondary_bg,
                     ),
                   ),
                   StaggeredGridTile.count(
@@ -71,8 +70,8 @@ class _EventCreation4State extends State<EventCreation4> {
                     child: PrimaryButton(
                       onPressed: (){},
                       text: 'set time',
-                      text_color: palette.hint_text,
-                      button_color: palette.secondary_bg,
+                      text_color: Palette.hint_text,
+                      button_color: Palette.secondary_bg,
                     ),
                   ),
                   StaggeredGridTile.count(
@@ -81,8 +80,8 @@ class _EventCreation4State extends State<EventCreation4> {
                     child: PrimaryButton(
                       onPressed: (){},
                       text: 'set location',
-                      text_color: palette.hint_text,
-                      button_color: palette.secondary_bg,
+                      text_color: Palette.hint_text,
+                      button_color: Palette.secondary_bg,
                     ),
                   ),
                 ],

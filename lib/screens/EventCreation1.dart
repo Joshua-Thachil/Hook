@@ -15,14 +15,13 @@ class EventCreation1 extends StatefulWidget {
 
 class _EventCreation1State extends State<EventCreation1> {
 
-  final Palette palette = Palette();
   double height = Globals.screenHeight;
   double width = Globals.screenWidth;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: palette.bg,
+      backgroundColor: Palette.bg,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         automaticallyImplyLeading: true,
@@ -56,7 +55,7 @@ class _EventCreation1State extends State<EventCreation1> {
                 splashColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 child: Card(
-                  color: palette.secondary_bg,
+                  color: Palette.secondary_bg,
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -84,7 +83,7 @@ class _EventCreation1State extends State<EventCreation1> {
                 splashColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 child: Card(
-                  color: palette.secondary_bg,
+                  color: Palette.secondary_bg,
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -112,7 +111,7 @@ class _EventCreation1State extends State<EventCreation1> {
                 splashColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 child: Card(
-                  color: palette.secondary_bg,
+                  color: Palette.secondary_bg,
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -140,7 +139,7 @@ class _EventCreation1State extends State<EventCreation1> {
                 splashColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 child: Card(
-                  color: palette.secondary_bg,
+                  color: Palette.secondary_bg,
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [

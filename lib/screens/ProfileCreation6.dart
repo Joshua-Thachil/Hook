@@ -15,13 +15,11 @@ class ProfileCreation6 extends StatefulWidget {
 }
 
 class _ProfileCreation6State extends State<ProfileCreation6> {
-
-  final Palette palette = Palette();
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: palette.bg,
+      backgroundColor: Palette.bg,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         automaticallyImplyLeading: true,
@@ -57,7 +55,7 @@ class _ProfileCreation6State extends State<ProfileCreation6> {
                     final song = widget.selectedSongs[index];
                     return Container(
                       decoration: BoxDecoration(
-                        color: palette.secondary_bg,
+                        color: Palette.secondary_bg,
                         borderRadius: BorderRadius.circular(10),
                       ),
                       padding: const EdgeInsets.all(8.0), // Padding around the content

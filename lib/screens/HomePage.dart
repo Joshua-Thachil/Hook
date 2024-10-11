@@ -39,7 +39,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   double height = Globals.screenHeight;
   double width = Globals.screenWidth;
-  final Palette palette = Palette();
   final _authUser = AuthService();
   File? _image; // profile picture
 
@@ -76,7 +75,7 @@ class _HomePageState extends State<HomePage> {
     return DefaultTabController(
       length: 4,
       child: Scaffold(
-        backgroundColor: palette.bg,
+        backgroundColor: Palette.bg,
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 22),
           child: Center(
@@ -91,7 +90,7 @@ class _HomePageState extends State<HomePage> {
                       "Hook",
                       style: TextStyle(
                         fontSize: 45,
-                        color: palette.primary,
+                        color: Palette.primary,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -119,7 +118,7 @@ class _HomePageState extends State<HomePage> {
                 // Tab bar
                 Container(
                   decoration: BoxDecoration(
-                    color: palette.secondary_bg,
+                    color: Palette.secondary_bg,
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: TabBar(
@@ -132,7 +131,7 @@ class _HomePageState extends State<HomePage> {
                     labelColor: Colors.black,
                     unselectedLabelColor: Colors.grey,
                     indicator: BoxDecoration(
-                      color: palette.primary,  // Background color of the pill
+                      color: Palette.primary,  // Background color of the pill
                       borderRadius: BorderRadius.circular(25.0), // Rounded corners for pill effect
                     ),
                     indicatorSize: TabBarIndicatorSize.tab,
@@ -200,7 +199,7 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     ElevatedButton(
                       style: ButtonStyle(
-                        backgroundColor: WidgetStatePropertyAll(palette.primary),
+                        backgroundColor: WidgetStatePropertyAll(Palette.primary),
                       ),
                       onPressed: () async {
                         await _authUser.signOut();
@@ -218,7 +217,7 @@ class _HomePageState extends State<HomePage> {
                     SizedBox(width: 30),
                     ElevatedButton(
                       style: ButtonStyle(
-                        backgroundColor: WidgetStatePropertyAll(palette.primary),
+                        backgroundColor: WidgetStatePropertyAll(Palette.primary),
                       ),
                       onPressed: () {
                         Navigator.push(context, MaterialPageRoute(builder: (context) => EventCreation1()));

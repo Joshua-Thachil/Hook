@@ -32,9 +32,7 @@ class _ProfileCreation3State extends State<ProfileCreation3> with TickerProvider
     'ClapBox',
     'Flute',
   ];
-
-  //color palette declaration
-  final Palette palette = Palette();
+  
   late Color currentBackgroundColor;
   late Color currentTextColor;
 
@@ -92,7 +90,7 @@ class _ProfileCreation3State extends State<ProfileCreation3> with TickerProvider
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: palette.bg,
+        backgroundColor: Palette.bg,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           automaticallyImplyLeading: true,
@@ -129,12 +127,12 @@ class _ProfileCreation3State extends State<ProfileCreation3> with TickerProvider
                         mainAxisCellCount: 0.6, // Height of the tile
                         child: GridButton(
                           backgroundColor: selectedInstruments[index]
-                              ? palette.accent  // Selected state
-                              : palette.secondary,  // Unselected state
+                              ? Palette.accent  // Selected state
+                              : Palette.secondary,  // Unselected state
                           text: instrument_list[index],
                           textColor: selectedInstruments[index]
-                              ? palette.primary_text  // Selected state
-                              : palette.secondary_text,  // Unselected state
+                              ? Palette.primary_text  // Selected state
+                              : Palette.secondary_text,  // Unselected state
                           onPressed: () {
                             setState(() {
                               // Toggle the selected state of the button
@@ -163,10 +161,10 @@ class _ProfileCreation3State extends State<ProfileCreation3> with TickerProvider
                         },
                         child: Icon(
                           Icons.add,
-                          color: palette.primary_text,
+                          color: Palette.primary_text,
                           size: 50,
                         ),
-                        backgroundColor: palette.accent,
+                        backgroundColor: Palette.accent,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20.r),
                         ),
@@ -181,11 +179,11 @@ class _ProfileCreation3State extends State<ProfileCreation3> with TickerProvider
                       height: 1,
                       suffix: IconButton(
                         onPressed: _addInstrument,
-                        icon: Icon(Icons.add, size: 50, color: palette.primary_text,),
-                        color: palette.accent,
+                        icon: Icon(Icons.add, size: 50, color: Palette.primary_text,),
+                        color: Palette.accent,
                         alignment: Alignment.centerRight,
                         style: ButtonStyle(
-                          backgroundColor: WidgetStatePropertyAll(palette.accent),
+                          backgroundColor: WidgetStatePropertyAll(Palette.accent),
                           shape: WidgetStatePropertyAll(
                             RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20.r),

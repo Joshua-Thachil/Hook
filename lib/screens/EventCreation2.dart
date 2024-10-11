@@ -24,7 +24,6 @@ class EventCreation2 extends StatefulWidget {
 
 class _EventCreation2State extends State<EventCreation2> with TickerProviderStateMixin{
   List<ListItem> genreList = [];
-  final Palette palette = Palette();
   late Color currentBackgroundColor;
   late Color currentTextColor;
 
@@ -97,7 +96,7 @@ class _EventCreation2State extends State<EventCreation2> with TickerProviderStat
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: palette.bg,
+      backgroundColor: Palette.bg,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         automaticallyImplyLeading: true,
@@ -136,11 +135,11 @@ class _EventCreation2State extends State<EventCreation2> with TickerProviderStat
                       });
                     },
                     backgroundColor: item.isSelected
-                        ? palette.accent  // Selected state
-                        : palette.secondary,
+                        ? Palette.accent  // Selected state
+                        : Palette.secondary,
                     textColor: item.isSelected
-                        ? palette.primary_text  // Selected state
-                        : palette.secondary_text,
+                        ? Palette.primary_text  // Selected state
+                        : Palette.secondary_text,
                     text: item.text,
                   );
                 }).toList(),
@@ -163,10 +162,10 @@ class _EventCreation2State extends State<EventCreation2> with TickerProviderStat
                       },
                       child: Icon(
                         Icons.add,
-                        color: palette.primary_text,
+                        color: Palette.primary_text,
                         size: 50,
                       ),
-                      backgroundColor: palette.accent,
+                      backgroundColor: Palette.accent,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),
@@ -181,11 +180,11 @@ class _EventCreation2State extends State<EventCreation2> with TickerProviderStat
                       height: 1,
                       suffix: IconButton(
                         onPressed: _addGenre,
-                        icon: Icon(Icons.add, size: 50, color: palette.primary_text,),
-                        color: palette.accent,
+                        icon: Icon(Icons.add, size: 50, color: Palette.primary_text,),
+                        color: Palette.accent,
                         alignment: Alignment.centerRight,
                         style: ButtonStyle(
-                            backgroundColor: WidgetStatePropertyAll(palette.accent),
+                            backgroundColor: WidgetStatePropertyAll(Palette.accent),
                             shape: WidgetStatePropertyAll(
                                 RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),

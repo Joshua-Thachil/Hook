@@ -12,14 +12,13 @@ class EventCreation5 extends StatefulWidget {
 }
 
 class _EventCreation5State extends State<EventCreation5> {
-
-  final Palette palette = Palette();
+  
   final TextEditingController titlecontroller = TextEditingController(); //stores the added title
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: palette.bg,
+      backgroundColor: Palette.bg,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         automaticallyImplyLeading: true,

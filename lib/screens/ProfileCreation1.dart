@@ -22,8 +22,6 @@ class _ProfileCreation1State extends State<ProfileCreation1> {
 
   double height = Globals.screenHeight;
   double width = Globals.screenWidth;
-  final Palette palette = Palette();
-
   File? _image;
   final ImagePicker _picker = ImagePicker();
   final TextEditingController usernamecontroller = TextEditingController();
@@ -43,7 +41,7 @@ class _ProfileCreation1State extends State<ProfileCreation1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: palette.bg,
+      backgroundColor: Palette.bg,
       body: Padding(
         padding: EdgeInsets.only(left: width * 0.075, right: width * 0.075),
         child: ListView(
@@ -70,7 +68,7 @@ class _ProfileCreation1State extends State<ProfileCreation1> {
                         icon: Icon(
                           Icons.edit,
                           size: 30,
-                          color: palette.secondary_text,
+                          color: Palette.secondary_text,
                         ),
                         label: const Text(""),
                         onPressed: () {
@@ -96,7 +94,7 @@ class _ProfileCreation1State extends State<ProfileCreation1> {
                                             icon: Icon(
                                               Icons.camera_alt,
                                               size: 40,
-                                              color: palette.secondary,
+                                              color: Palette.secondary,
                                             ),
                                             onPressed: () =>
                                                 _pickImage(ImageSource.camera),
@@ -105,7 +103,7 @@ class _ProfileCreation1State extends State<ProfileCreation1> {
                                             "Take a picture",
                                             style: TextStyle(
                                               fontWeight: FontWeight.normal,
-                                              color: palette.primary_text,
+                                              color: Palette.primary_text,
                                             ),
                                           ),
                                         ],
@@ -115,7 +113,7 @@ class _ProfileCreation1State extends State<ProfileCreation1> {
                                         children: [
                                           IconButton(
                                             icon: Icon(Icons.photo_library,
-                                                size: 40, color: palette.secondary),
+                                                size: 40, color: Palette.secondary),
                                             onPressed: () =>
                                                 _pickImage(ImageSource.gallery),
                                           ),
@@ -123,7 +121,7 @@ class _ProfileCreation1State extends State<ProfileCreation1> {
                                             "Pick from gallery",
                                             style: TextStyle(
                                               fontWeight: FontWeight.normal,
-                                              color: palette.primary_text,
+                                              color: Palette.primary_text,
                                             ),
                                           ),
                                         ],

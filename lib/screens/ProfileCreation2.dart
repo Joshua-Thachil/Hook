@@ -21,12 +21,11 @@ class _ProfileCreation2State extends State<ProfileCreation2> {
   final TextEditingController descriptioncontroller = TextEditingController();
   double height = Globals.screenHeight;
   double width = Globals.screenWidth;
-  final Palette palette = Palette();
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: palette.bg,
+      backgroundColor: Palette.bg,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         automaticallyImplyLeading: true,

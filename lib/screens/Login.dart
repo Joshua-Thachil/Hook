@@ -23,8 +23,6 @@ class _LoginState extends State<Login> {
 
   double height = Globals.screenHeight;
   double width = Globals.screenWidth;
-  final Palette palette = Palette();
-
   final _auth = AuthService();
   final loginEmailController = TextEditingController();
   final loginPasswordController = TextEditingController();
@@ -67,7 +65,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: palette.bg,
+      backgroundColor: Palette.bg,
       appBar: AppBar(
         toolbarHeight: height * 0.13,
         backgroundColor: Colors.transparent,
@@ -132,7 +130,7 @@ class _LoginState extends State<Login> {
                 style: ElevatedButton.styleFrom(
                   elevation: 0,
                   fixedSize: const Size(366, 70),
-                  backgroundColor: palette.secondary,
+                  backgroundColor: Palette.secondary,
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -150,7 +148,7 @@ class _LoginState extends State<Login> {
                             text: "Continue With ",
                             style: TextStyle(
                               fontSize: 18.3,
-                              color: palette.secondary_text,
+                              color: Palette.secondary_text,
                               fontWeight: FontWeight.w400,
                             ),
                           ),
@@ -158,7 +156,7 @@ class _LoginState extends State<Login> {
                             text: "Google",
                             style: TextStyle(
                               fontSize: 18.3,
-                              color: palette.secondary_text,
+                              color: Palette.secondary_text,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -176,7 +174,7 @@ class _LoginState extends State<Login> {
                 child: Text(
                   "or",
                   style: TextStyle(
-                    color: palette.primary_text,
+                    color: Palette.primary_text,
                     fontSize: 22,
                   ),
                 ),
@@ -196,7 +194,7 @@ class _LoginState extends State<Login> {
                     "forgot password?",
                     style: TextStyle(
                       fontSize: 16,
-                      color: palette.primary_text,
+                      color: Palette.primary_text,
                       fontWeight: FontWeight.w300,
                     )
                   ),

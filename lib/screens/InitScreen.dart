@@ -17,8 +17,6 @@ class _InitScreenState extends State<InitScreen> {
 
   double height = Globals.screenHeight;
   double width = Globals.screenWidth;
-  final Palette palette = Palette();
-
   List<Widget> carouselItems = [
     Container(
       decoration: const BoxDecoration(
@@ -102,7 +100,7 @@ class _InitScreenState extends State<InitScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: palette.bg,
+      backgroundColor: Palette.bg,
       body: Center(
         child: Padding(
           padding: EdgeInsets.only(left: width * 0.075, right: width * 0.075),
@@ -127,8 +125,8 @@ class _InitScreenState extends State<InitScreen> {
                 onPressed: (){
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const SignUp()));
                   },
-                button_color: palette.secondary_bg,
-                text_color: palette.primary_text,
+                button_color: Palette.secondary_bg,
+                text_color: Palette.primary_text,
               ),
             ],
           ),

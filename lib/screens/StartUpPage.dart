@@ -13,9 +13,7 @@ class StartUpPage extends StatefulWidget {
 }
 
 class _StartUpPageState extends State<StartUpPage> {
-
-  final Palette palette = Palette();
-
+  
   double height = Globals.screenHeight;
   double width = Globals.screenWidth;
 
@@ -32,7 +30,7 @@ class _StartUpPageState extends State<StartUpPage> {
                 child: Text("welcome to",
                   style: TextStyle(
                     fontSize: 48,
-                    color: palette.primary_text,
+                    color: Palette.primary_text,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -42,7 +40,7 @@ class _StartUpPageState extends State<StartUpPage> {
                 child: Text("Hook",
                   style: TextStyle(
                     fontSize: 48,
-                    color: palette.primary,
+                    color: Palette.primary,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -52,7 +50,7 @@ class _StartUpPageState extends State<StartUpPage> {
                 child: Text("Find all the music you'd ever need",
                   style: TextStyle(
                     fontSize: 24,
-                    color: palette.primary_text,
+                    color: Palette.primary_text,
                   ),
                 ),
                 alignment: Alignment.centerLeft,
@@ -100,7 +98,7 @@ class _StartUpPageState extends State<StartUpPage> {
                         style: TextStyle(
                           wordSpacing: 2,
                           fontSize: 24,
-                          color: palette.primary_text,
+                          color: Palette.primary_text,
                       ),
                       textAlign: TextAlign.center,
                     )
@@ -116,7 +114,7 @@ class _StartUpPageState extends State<StartUpPage> {
           ),
         ),
       ),
-      backgroundColor: palette.bg,
+      backgroundColor: Palette.bg,
     );
   }
 }

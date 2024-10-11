@@ -76,8 +76,6 @@ class _ProfileCreation5State extends State<ProfileCreation5> {
 
   double height = Globals.screenHeight;
   double width = Globals.screenWidth;
-
-  final Palette palette = Palette();
   final TextEditingController songsearchcontroller = TextEditingController();
   final FocusNode searchFocusNode = FocusNode();
   bool isSearchFocused = false;
@@ -125,7 +123,7 @@ class _ProfileCreation5State extends State<ProfileCreation5> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: palette.bg,
+      backgroundColor: Palette.bg,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         automaticallyImplyLeading: true,
@@ -175,11 +173,11 @@ class _ProfileCreation5State extends State<ProfileCreation5> {
                     : Column(
                   children: selectedSongs.map((song) {
                     return Card(
-                      color: palette.primary,
+                      color: Palette.primary,
                       child: ListTile(
                         leading: Image.network(song['coverArt']!),
-                        title: Text(song['title']!, style: TextStyle(color: palette.secondary_text, fontWeight: FontWeight.w500)),
-                        subtitle: Text(song['artist']!, style: TextStyle(color: palette.secondary_bg)),
+                        title: Text(song['title']!, style: TextStyle(color: Palette.secondary_text, fontWeight: FontWeight.w500)),
+                        subtitle: Text(song['artist']!, style: TextStyle(color: Palette.secondary_bg)),
                         trailing: IconButton(
                           icon: Icon(Icons.remove, color: Colors.black), // Change to minus icon
                           onPressed: () {
@@ -214,7 +212,7 @@ class _ProfileCreation5State extends State<ProfileCreation5> {
                           textAlign: TextAlign.center,
                           "Create a small playlist to showcase your music taste",
                           style: TextStyle(
-                            color: palette.primary_text,
+                            color: Palette.primary_text,
                             fontSize: 18,
                           ),
                         ),
@@ -234,7 +232,7 @@ class _ProfileCreation5State extends State<ProfileCreation5> {
                           return SizedBox.shrink(); // Return an empty widget if the song is selected
                         }
                         return Container(
-                          // color: palette.secondary_bg,
+                          // color: Palette.secondary_bg,
                           margin: const EdgeInsets.only(top: 5, bottom: 5),
                           child: ListTile(
                             leading: Image.network(song['coverArt']!),
@@ -268,7 +266,7 @@ class _ProfileCreation5State extends State<ProfileCreation5> {
             },
               child: Text("Skip for now?",
                 style: TextStyle(
-                  color: palette.primary_text, fontSize: 18, fontWeight: FontWeight.bold
+                  color: Palette.primary_text, fontSize: 18, fontWeight: FontWeight.bold
                 ),
               ),
             ),

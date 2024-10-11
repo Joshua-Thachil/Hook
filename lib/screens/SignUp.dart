@@ -23,9 +23,6 @@ class _SignUpState extends State<SignUp> {
 
   double height = Globals.screenHeight;
   double width = Globals.screenWidth;
-
-  final Palette palette = Palette();
-
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final _authClass = AuthService();
@@ -73,7 +70,7 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: palette.bg,
+      backgroundColor: Palette.bg,
       appBar: AppBar(
         toolbarHeight: height * 0.13,
         backgroundColor: Colors.transparent,
@@ -101,7 +98,7 @@ class _SignUpState extends State<SignUp> {
                           style: TextStyle(
                             fontSize: 57,
                             fontWeight: FontWeight.bold,
-                            color: palette.primary_text,
+                            color: Palette.primary_text,
                             height: 1.25,
                           ),
                         ),
@@ -119,7 +116,7 @@ class _SignUpState extends State<SignUp> {
                           style: TextStyle(
                             fontSize: 57,
                             fontWeight: FontWeight.bold,
-                            color: palette.primary_text,
+                            color: Palette.primary_text,
                             height: 1.25,
                           ),
                         ),
@@ -136,7 +133,7 @@ class _SignUpState extends State<SignUp> {
                   style: ElevatedButton.styleFrom(
                     elevation: 0,
                     fixedSize: const Size(366, 70),
-                    backgroundColor: palette.secondary,
+                    backgroundColor: Palette.secondary,
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -180,7 +177,7 @@ class _SignUpState extends State<SignUp> {
                 child: Text(
                   "or",
                   style: TextStyle(
-                    color: palette.primary_text,
+                    color: Palette.primary_text,
                     fontSize: 22,
                   ),
                 ),

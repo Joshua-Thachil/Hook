@@ -36,9 +36,7 @@ class _EventCreation3State extends State<EventCreation3>
   ];
 
   List<int> instrument_count = [];
-
-  //color palette declaration
-  final Palette palette = Palette();
+  
   late Color currentBackgroundColor;
   late Color currentTextColor;
 
@@ -99,7 +97,7 @@ class _EventCreation3State extends State<EventCreation3>
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: palette.bg,
+        backgroundColor: Palette.bg,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           automaticallyImplyLeading: true,
@@ -152,7 +150,6 @@ class _EventCreation3State extends State<EventCreation3>
                             mainAxisCellCount: 0.6, // Height of the tile
                             child: InstrumentPicker(
                               counter: instrument_count[index],
-                                palette: palette,
                                 instrument: instrument_list[index])),
                       ),
                   ],
@@ -177,10 +174,10 @@ class _EventCreation3State extends State<EventCreation3>
                               },
                               child: Icon(
                                 Icons.add,
-                                color: palette.primary_text,
+                                color: Palette.primary_text,
                                 size: 50,
                               ),
-                              backgroundColor: palette.accent,
+                              backgroundColor: Palette.accent,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20.r),
                               ),
@@ -198,13 +195,13 @@ class _EventCreation3State extends State<EventCreation3>
                               icon: Icon(
                                 Icons.add,
                                 size: 50,
-                                color: palette.primary_text,
+                                color: Palette.primary_text,
                               ),
-                              color: palette.accent,
+                              color: Palette.accent,
                               alignment: Alignment.centerRight,
                               style: ButtonStyle(
                                   backgroundColor:
-                                      WidgetStatePropertyAll(palette.accent),
+                                      WidgetStatePropertyAll(Palette.accent),
                                   shape: WidgetStatePropertyAll(
                                       RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20.r),
@@ -259,11 +256,8 @@ class InstrumentPicker extends StatefulWidget {
   InstrumentPicker({
     super.key,
     required this.counter,
-    required this.palette,
     required this.instrument,
   });
-
-  final Palette palette;
 
   @override
   State<InstrumentPicker> createState() => _InstrumentPickerState();
@@ -287,7 +281,7 @@ class _InstrumentPickerState extends State<InstrumentPicker> {
                 widget.counter.toString(),
                   style: TextStyle(
                   fontSize: 48,
-                  color: widget.palette.primary_text,
+                  color: Palette.primary_text,
                 )
               ),
               //     child: TextField(
@@ -313,7 +307,7 @@ class _InstrumentPickerState extends State<InstrumentPicker> {
               //
               //   // style: TextStyle(
               //   //   fontSize: 48,
-              //   //   color: widget.palette.primary_text,
+              //   //   color: widget.Palette.primary_text,
               //   // ),
               // )
               ),
@@ -321,7 +315,7 @@ class _InstrumentPickerState extends State<InstrumentPicker> {
             widget.instrument,
             style: TextStyle(
               fontSize: 20,
-              color: widget.palette.primary_text,
+              color: Palette.primary_text,
             ),
           ),
         ]),
