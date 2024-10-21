@@ -60,7 +60,7 @@ class _NotificationPageState extends State<NotificationPage> {
       length: 2,
       child: Scaffold(
         backgroundColor: Palette.bg,
-          appBar: PreferredSize(
+        appBar: PreferredSize(
             preferredSize: Size.fromHeight(66),
             child: Padding(
               padding: const EdgeInsets.only(top: 10),
