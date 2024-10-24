@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:musicapp/components/Globals.dart';
 import 'package:musicapp/Style/Palette.dart';
+import 'package:musicapp/screens/ProjectsScreen.dart';
 import 'HomePage.dart';
 
 import '../components/Buttons.dart';
@@ -83,7 +84,12 @@ class _StartUpPageState extends State<StartUpPage> {
                   ),
                   SquareButton(
                     text: "Recording Sessions",
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const ProjectScreen()),
+                      );
+                    },
                     button_color: const Color(0xffFF4768),
                   ),
                 ],
