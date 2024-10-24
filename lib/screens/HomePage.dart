@@ -10,6 +10,7 @@ import 'package:musicapp/components/Globals.dart';
 import 'package:musicapp/Style/Palette.dart';
 import 'package:musicapp/screens/NotificationPage.dart';
 import 'package:musicapp/screens/ProfilePage.dart';
+import 'package:musicapp/screens/StartUpPage.dart';
 import 'EventCreation1.dart';
 
 //event class
@@ -379,13 +380,13 @@ class _HomePageState extends State<HomePage> {
                 Column(
                   children: [
                     IconButton(
-                      icon: Icon(Icons.mic, size: 30, color: Colors.white),
+                      icon: Icon(Icons.home_filled, size: 30, color: Colors.white),
                       onPressed: () {
-                        print('Home Pressed');
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => StartUpPage(),));
                       },
                     ),
                     Text(
-                      'Recordings',
+                      'Home',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 14,
