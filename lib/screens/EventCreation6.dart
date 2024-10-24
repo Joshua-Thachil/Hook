@@ -3,18 +3,17 @@ import 'package:musicapp/Style/Palette.dart';
 import 'package:musicapp/components/SegmentedProgressBar.dart';
 import 'package:musicapp/components/InputFields.dart';
 import 'package:musicapp/components/Buttons.dart';
+import 'package:musicapp/screens/HomePage.dart';
 
-import 'EventCreation6.dart';
-
-class EventCreation5 extends StatefulWidget {
-  const EventCreation5({super.key});
+class EventCreation6 extends StatefulWidget {
+  const EventCreation6({super.key});
 
   @override
-  State<EventCreation5> createState() => _EventCreation5State();
+  State<EventCreation6> createState() => _EventCreation6State();
 }
 
-class _EventCreation5State extends State<EventCreation5> {
-
+class _EventCreation6State extends State<EventCreation6> {
+  
   final TextEditingController titlecontroller = TextEditingController(); //stores the added title
 
   @override
@@ -37,7 +36,7 @@ class _EventCreation5State extends State<EventCreation5> {
               SegmentedProgressBar(totalSteps: 5, currentStep: 5),
               const SizedBox(height: 80),
               const Text(
-                "Add a description",
+                "Finally add a title",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.white,
@@ -48,8 +47,8 @@ class _EventCreation5State extends State<EventCreation5> {
               const SizedBox(height: 30),
               InputField(
                 InputController: titlecontroller,
-                hint: 'Enter description',
-                height: 5,
+                hint: 'Enter title',
+                height: 1,
               )
             ],
           ),
@@ -62,10 +61,10 @@ class _EventCreation5State extends State<EventCreation5> {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             NextButton(
-              text: "Next",
+              text: "Done",
               icon: Icons.arrow_forward,
               onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => EventCreation6(),));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(),));
               },
             )
           ],

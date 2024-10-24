@@ -31,7 +31,6 @@ class EventCard extends StatefulWidget {
   @override
   _EventCardState createState() => _EventCardState();
 }
-
 class _EventCardState extends State<EventCard> {
   int _currentIndex = 0;
   Timer? _timer;
@@ -198,6 +197,111 @@ class _EventCardState extends State<EventCard> {
     );
   }
 }
+
+class ProfileEventCard extends StatefulWidget {
+  final String title;
+  final String organizer;
+  final String date;
+  final String location;
+  final VoidCallback onTap;
+
+  const ProfileEventCard({
+    Key? key,
+    required this.title,
+    required this.organizer,
+    required this.date,
+    required this.location,
+    required this.onTap,
+  }) : super(key: key);
+
+  @override
+  _ProfileEventCardState createState() => _ProfileEventCardState();
+}
+class _ProfileEventCardState extends State<ProfileEventCard> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+      width: 280, // Width of each item in the horizontal list
+      margin: EdgeInsets.symmetric(horizontal: 8), // Add some spacing between items
+      decoration: BoxDecoration(
+        color: Palette.secondary_bg, // Background color of the container
+        borderRadius: BorderRadius.circular(10), // Rounded corners
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            overflow: TextOverflow.ellipsis,
+            maxLines: 2,
+            widget.title,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+            ),
+          ),
+          SizedBox(height: 2,),
+          Text(
+            overflow: TextOverflow.ellipsis,
+            widget.organizer,
+            style: TextStyle(
+              color: Colors.grey,
+              fontSize: 16,
+            ),
+          ),
+          SizedBox(height: 30,),
+          Text(
+            widget.date,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          SizedBox(height: 15,),
+          GestureDetector(
+            onTap: widget.onTap,
+            child: Row(
+              children: [
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 2.0),
+                  decoration: BoxDecoration(
+                      color: WidgetStateColor.transparent,
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all(
+                        color: Colors.white,
+                      )
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Icon(
+                        Icons.location_pin,
+                        size: 20,
+                        color: Colors.white,
+                      ),
+                      SizedBox(width: 10),
+                      Text(
+                        widget.location,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+
 class NotificationCard extends StatelessWidget {
   final String notificationText;
   final String timeSent;

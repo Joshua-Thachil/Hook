@@ -5,6 +5,7 @@ import 'package:musicapp/components/Globals.dart';
 import 'package:musicapp/components/SegmentedProgressBar.dart';
 import 'package:musicapp/components/Buttons.dart';
 import 'EventCreation5.dart';
+import 'EventCreation6.dart';
 
 class EventCreation4 extends StatefulWidget {
   const EventCreation4({super.key});
