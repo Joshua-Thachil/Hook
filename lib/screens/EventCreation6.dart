@@ -1,9 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:musicapp/Style/Palette.dart';
 import 'package:musicapp/components/SegmentedProgressBar.dart';
 import 'package:musicapp/components/InputFields.dart';
 import 'package:musicapp/components/Buttons.dart';
 import 'package:musicapp/screens/HomePage.dart';
+import 'package:musicapp/repositories/EventsCollection.dart';
 
 class EventCreation6 extends StatefulWidget {
   const EventCreation6({super.key});
@@ -63,7 +65,7 @@ class _EventCreation6State extends State<EventCreation6> {
             NextButton(
               text: "Done",
               icon: Icons.arrow_forward,
-              onPressed: (){
+              onPressed: () async{
                 Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(),));
               },
             )

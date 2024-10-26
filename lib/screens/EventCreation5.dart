@@ -1,8 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:musicapp/Style/Palette.dart';
 import 'package:musicapp/components/SegmentedProgressBar.dart';
 import 'package:musicapp/components/InputFields.dart';
 import 'package:musicapp/components/Buttons.dart';
+import 'package:musicapp/repositories/EventsCollection.dart';
 
 import 'EventCreation6.dart';
 
@@ -15,7 +17,7 @@ class EventCreation5 extends StatefulWidget {
 
 class _EventCreation5State extends State<EventCreation5> {
 
-  final TextEditingController titlecontroller = TextEditingController(); //stores the added title
+  final TextEditingController descController = TextEditingController(); //stores the added title
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +49,7 @@ class _EventCreation5State extends State<EventCreation5> {
               ),
               const SizedBox(height: 30),
               InputField(
-                InputController: titlecontroller,
+                InputController: descController,
                 hint: 'Enter description',
                 height: 5,
               )
@@ -64,7 +66,9 @@ class _EventCreation5State extends State<EventCreation5> {
             NextButton(
               text: "Next",
               icon: Icons.arrow_forward,
-              onPressed: (){
+              onPressed: () async{
+                DocumentSnapshot snap = await Event().getDocument;
+                Event().editDesc(descController.text, snap);
                 Navigator.push(context, MaterialPageRoute(builder: (context) => EventCreation6(),));
               },
             )

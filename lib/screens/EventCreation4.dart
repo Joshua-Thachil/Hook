@@ -1,11 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:musicapp/Style/Palette.dart';
 import 'package:musicapp/components/Globals.dart';
 import 'package:musicapp/components/SegmentedProgressBar.dart';
 import 'package:musicapp/components/Buttons.dart';
+import 'package:musicapp/repositories/EventsCollection.dart';
 import 'EventCreation5.dart';
-import 'EventCreation6.dart';
+import 'package:intl/intl.dart';
 
 class EventCreation4 extends StatefulWidget {
   const EventCreation4({super.key});
@@ -18,6 +20,8 @@ class _EventCreation4State extends State<EventCreation4> {
 
   double height = Globals.screenHeight;
   double width = Globals.screenWidth;
+  String date = "Set Date";
+  String time = "Set Time";
 
   @override
   Widget build(BuildContext context) {
@@ -57,10 +61,17 @@ class _EventCreation4State extends State<EventCreation4> {
                     crossAxisCellCount: 1,
                     mainAxisCellCount: 0.5,
                     child: PrimaryButton(
-                      onPressed: (){
+                      onPressed: () async {
+                        final pickedDate = await showDatePicker(context: context, firstDate: DateTime.now(), lastDate: DateTime(2050));
 
+                        if(pickedDate != null)
+                        {
+                          setState(() {
+                            date = DateFormat('E, MMM d').format(pickedDate);
+                          });
+                        }
                       },
-                      text: 'set date',
+                      text: date,
                       text_color: Palette.hint_text,
                       button_color: Palette.secondary_bg,
                     ),
@@ -69,8 +80,27 @@ class _EventCreation4State extends State<EventCreation4> {
                     crossAxisCellCount: 1,
                     mainAxisCellCount: 0.5,
                     child: PrimaryButton(
-                      onPressed: (){},
-                      text: 'set time',
+                      onPressed: () async {
+                        final pickedTime = await showTimePicker(context: context, initialTime: TimeOfDay.now());
+
+
+                        if(pickedTime != null){
+
+                          // Converting Time to DateTime for conversion
+                          DateTime castedDate = DateTime(
+                            0,
+                            0,
+                            0,
+                            pickedTime.hour,
+                            pickedTime.minute
+                          );
+
+                          setState(() {
+                            time = DateFormat('h:mm a').format(castedDate);
+                          });
+                        }
+                      },
+                      text: time,
                       text_color: Palette.hint_text,
                       button_color: Palette.secondary_bg,
                     ),
@@ -100,7 +130,9 @@ class _EventCreation4State extends State<EventCreation4> {
             NextButton(
               text: "Next",
               icon: Icons.arrow_forward,
-              onPressed: (){
+              onPressed: () async{
+                DocumentSnapshot snap = await Event().getDocument;
+                await Event().editDateTime(date, time, snap);
                 Navigator.push(context, MaterialPageRoute(builder: (context) => EventCreation5(),));
               },
             )

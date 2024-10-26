@@ -37,5 +37,27 @@ class Event {
     });
   }
 
+  Future<void> editDateTime(String date, String time, DocumentSnapshot document) async
+  {
+    await Events.doc(document.id).update({
+      "date" : date,
+      "time" : time
+    });
+  }
+
+  Future<void> editDesc(String desc, DocumentSnapshot document) async
+  {
+    await Events.doc(document.id).update({
+      "description" : desc
+    });
+  }
+
+  Future<void> editTitle(String title, DocumentSnapshot document) async
+  {
+    await Events.doc(document.id).update({
+      "title" : title
+    });
+  }
+
 
 }
